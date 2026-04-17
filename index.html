@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Primary Meta Tags (SEO Optimization) -->
     <title>Kerollos Atnass | Professor Owl</title>
     <meta name="title" content="Kerollos Atnass | Professor Owl">
     <meta name="description" content="The official digital portfolio of Kerollos Atnass (كيرلس أطناس), also known as Professor Owl. Offensive Security Engineer, Penetration Tester, Bug Bounty Hunter, and CTF Player.">
@@ -13,14 +12,12 @@
     <meta name="robots" content="index, follow">
     <meta name="language" content="English">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kerollosatnass.github.io/">
     <meta property="og:title" content="Kerollos Atnass | Professor Owl - Offensive Security Engineer">
     <meta property="og:description" content="Discover the digital hub of Kerollos Atnass (Professor Owl). Penetration Tester, Bug Hunter, and Cyber Security Enthusiast.">
     <meta property="og:image" content="https://github.com/kerollosatnass.png">
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://kerollosatnass.github.io/">
     <meta property="twitter:title" content="Kerollos Atnass | Professor Owl">
@@ -58,7 +55,6 @@
             }
         }
     </script>
-    <!-- React & Babel & Framer Motion -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -154,7 +150,7 @@
             return (
                 <span className="text-white font-normal text-sm md:text-base">
                     {`${currentWord.substring(0, subIndex)}`}
-                    <span className={`border-r-2 border-redAccent-100 ml-1 ${blink ? 'opacity-100' : 'opacity-0'}`}>&nbsp;</span>
+                    <span className={`border-r-2 border-redAccent-100 ml-1 ${blink ? 'opacity-100' : 'opacity-0'}`}> </span>
                 </span>
             );
         };
@@ -814,7 +810,7 @@ Content-Type: application/json
                     <div className="glassmorphism rounded-xl p-6">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="youtube" className="w-5 h-5 text-redAccent-100"/> Latest YouTube Videos</h2>
-                            <a href="https://youtube.com/@kerollosatnass" target="_blank" className="text-sm text-redAccent-100 hover:text-white transition-colors">Visit Channel &rarr;</a>
+                            <a href="https://youtube.com/@kerollosatnass" target="_blank" className="text-sm text-redAccent-100 hover:text-white transition-colors">Visit Channel →</a>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {[1, 2, 3].map(item => (
@@ -835,7 +831,7 @@ Content-Type: application/json
                     <div className="glassmorphism rounded-xl p-6">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="award" className="w-5 h-5"/> Latest Verified Certifications</h2>
-                            <button onClick={() => setCurrentTab('certs')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All &rarr;</button>
+                            <button onClick={() => setCurrentTab('certs')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {myCertifications.slice(0, 3).map(cert => (
@@ -848,7 +844,7 @@ Content-Type: application/json
                     <div className="glassmorphism rounded-xl p-6">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="book" className="w-5 h-5"/> Current Learning</h2>
-                            <button onClick={() => setCurrentTab('certs')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All &rarr;</button>
+                            <button onClick={() => setCurrentTab('certs')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             {myCourses.filter(c => c.status === 'In Progress').slice(0, 3).map(course => (
@@ -861,7 +857,7 @@ Content-Type: application/json
                     <div className="glassmorphism rounded-xl p-6">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="book-open" className="w-5 h-5"/> Latest Writeups</h2>
-                            <button onClick={() => setCurrentTab('writeups')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All &rarr;</button>
+                            <button onClick={() => setCurrentTab('writeups')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
                         <div className="grid grid-cols-1 gap-4">
                             <motion.div 
@@ -884,7 +880,7 @@ Content-Type: application/json
                     <div className="glassmorphism rounded-xl p-6">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="code" className="w-5 h-5"/> Latest Projects</h2>
-                            <button onClick={() => setCurrentTab('projects')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All &rarr;</button>
+                            <button onClick={() => setCurrentTab('projects')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {recentRepos.length > 0 ? recentRepos.map(repo => (
@@ -933,7 +929,7 @@ Content-Type: application/json
                         {myCertifications.length > 4 && (
                             <div className="mt-8 text-center">
                                 <button onClick={() => setViewAllData({ title: 'Verified Certifications', type: 'certs', items: myCertifications })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-8 py-3 rounded-xl text-sm font-medium transition-all group">
-                                    View All <span className="text-redAccent-100 group-hover:text-white transition-colors">&rarr;</span>
+                                    View All <span className="text-redAccent-100 group-hover:text-white transition-colors">→</span>
                                 </button>
                             </div>
                         )}
@@ -951,7 +947,7 @@ Content-Type: application/json
                         {myCourses.length > 4 && (
                             <div className="mt-8 text-center">
                                 <button onClick={() => setViewAllData({ title: 'Courses & Training', type: 'courses', items: myCourses })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-8 py-3 rounded-xl text-sm font-medium transition-all group">
-                                    View All <span className="text-redAccent-100 group-hover:text-white transition-colors">&rarr;</span>
+                                    View All <span className="text-redAccent-100 group-hover:text-white transition-colors">→</span>
                                 </button>
                             </div>
                         )}
@@ -969,7 +965,7 @@ Content-Type: application/json
                         {myPlatforms.length > 4 && (
                             <div className="mt-8 text-center">
                                 <button onClick={() => setViewAllData({ title: 'Platforms', type: 'platforms', items: myPlatforms })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-8 py-3 rounded-xl text-sm font-medium transition-all group">
-                                    View All <span className="text-redAccent-100 group-hover:text-white transition-colors">&rarr;</span>
+                                    View All <span className="text-redAccent-100 group-hover:text-white transition-colors">→</span>
                                 </button>
                             </div>
                         )}
@@ -1217,6 +1213,11 @@ Content-Type: application/json
             const [selectedCourse, setSelectedCourse] = React.useState(null);
             const [selectedWriteup, setSelectedWriteup] = React.useState(null);
             const [viewAllData, setViewAllData] = React.useState(null);
+
+            // Scroll to top on tab change
+            React.useEffect(() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, [currentTab]);
 
             return (
                 <div className="pt-24 pb-12 px-4 md:px-8 lg:px-16 max-w-6xl mx-auto min-h-screen flex flex-col relative">
