@@ -4,25 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Kerollos Atnass | Professor Owl</title>
-    <meta name="title" content="Kerollos Atnass | Professor Owl">
-    <meta name="description" content="The official digital portfolio of Kerollos Atnass (كيرلس أطناس), also known as Professor Owl. Offensive Security Engineer, Penetration Tester, Bug Bounty Hunter, and CTF Player.">
-    <meta name="keywords" content="Kerollos Atnass, كيرلس أطناس, Professor Owl, ProfessorOwl, Offensive Security Engineer, Penetration Tester, Bug Bounty, CTF, Cyber Security, Red Team">
-    <meta name="author" content="Kerollos Atnass">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
+    <!-- Primary Meta Tags (Extreme SEO & Knowledge Graph Optimization) -->
+    <title>Kerollos Atnass (كيرلس أطناس) | Professor Owl - Cyber Security</title>
+    <meta name="title" content="Kerollos Atnass (كيرلس أطناس) | Professor Owl - Offensive Security Engineer">
+    <meta name="description" content="The official digital identity and portfolio of Kerollos Atnass (كيرلس أطناس), professionally known as Professor Owl. Offensive Security Engineer, Penetration Tester, Bug Bounty Hunter, and CTF Player.">
+    <meta name="keywords" content="Kerollos Atnass, كيرلس أطناس, Professor Owl, ProfessorOwl, Professor Owl Cyber Security, كيرلس أطناس سكيورتي, Offensive Security Engineer, Penetration Tester, Bug Bounty Hunter, Red Team, Hacker, CTF">
+    <meta name="author" content="Kerollos Atnass (Professor Owl)">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="English, Arabic">
+    <meta name="revisit-after" content="1 days">
+    <link rel="canonical" href="https://kerollosatnass.github.io/" />
 
-    <meta property="og:type" content="website">
+    <!-- Open Graph / Facebook (Rich Snippets) -->
+    <meta property="og:type" content="profile">
     <meta property="og:url" content="https://kerollosatnass.github.io/">
-    <meta property="og:title" content="Kerollos Atnass | Professor Owl - Offensive Security Engineer">
-    <meta property="og:description" content="Discover the digital hub of Kerollos Atnass (Professor Owl). Penetration Tester, Bug Hunter, and Cyber Security Enthusiast.">
+    <meta property="og:title" content="Kerollos Atnass (Professor Owl) | كيرلس أطناس - Cyber Security">
+    <meta property="og:description" content="Explore the official digital hub of Kerollos Atnass (Professor Owl). Offensive Security Engineer & Bug Hunter. Discover my writeups, CTFs, and achievements.">
     <meta property="og:image" content="https://github.com/kerollosatnass.png">
+    <meta property="profile:first_name" content="Kerollos">
+    <meta property="profile:last_name" content="Atnass">
+    <meta property="profile:username" content="ProfessorOwl">
 
+    <!-- Twitter (Rich Cards) -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://kerollosatnass.github.io/">
-    <meta property="twitter:title" content="Kerollos Atnass | Professor Owl">
+    <meta property="twitter:title" content="Kerollos Atnass (كيرلس أطناس) | Professor Owl">
     <meta property="twitter:description" content="Official Portfolio of Kerollos Atnass (Professor Owl) - Offensive Security Engineer & Bug Hunter.">
     <meta property="twitter:image" content="https://github.com/kerollosatnass.png">
+    <meta property="twitter:creator" content="@KerollosAtnass">
+
+    <!-- Schema.org JSON-LD (The ultimate AI & Knowledge Graph trick) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kerollos Atnass",
+        "alternateName": ["كيرلس أطناس", "Professor Owl", "ProfessorOwl", "Kerollos Atnas"],
+        "url": "https://kerollosatnass.github.io/",
+        "image": "https://github.com/kerollosatnass.png",
+        "jobTitle": "Offensive Security Engineer & Bug Bounty Hunter",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Cyber Security Industry"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Delta Technological University"
+        },
+        "knowsAbout": ["Cyber Security", "Penetration Testing", "Bug Bounty", "Red Teaming", "CTF"],
+        "sameAs": [
+            "https://linkedin.com/in/kerollosatnass",
+            "https://github.com/kerollosatnass",
+            "https://x.com/kerollosatnass",
+            "https://facebook.com/kerollosatnass",
+            "https://tryhackme.com/p/ProfessorOwl",
+            "https://hackerone.com/ProfessorOwl",
+            "https://youtube.com/@kerollosatnass",
+            "https://dev.to/kerollosatnass",
+            "https://medium.com/@kerollosatnass"
+        ]
+    }
+    </script>
 
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -69,6 +111,7 @@
             background-color: #0d0d0d;
             color: #f0f0f0;
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile body */
         }
         
         .glassmorphism {
@@ -78,7 +121,7 @@
             border: 1px solid rgba(255, 59, 59, 0.2);
         }
         
-        .contribution-grid { display: grid; grid-template-columns: repeat(52, 1fr); gap: 3px; }
+        .contribution-grid { display: grid; grid-template-columns: repeat(52, 1fr); gap: 3px; min-width: 800px; }
         .contribution-cell { width: 12px; height: 12px; background-color: #333; border-radius: 2px; transition: all 0.3s ease; }
         .contribution-cell.active { background-color: #ff3b3b; box-shadow: 0 0 5px #ff3b3b; }
         .contribution-cell:hover { transform: scale(1.2); box-shadow: 0 0 10px #ff3b3b; }
@@ -87,7 +130,7 @@
         body.modal-open { overflow: hidden; }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #0d0d0d; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #ff3b3b; }
@@ -211,36 +254,38 @@
             }, []);
 
             return (
-                <div className="contribution-grid overflow-x-auto pb-2 scrollbar-hide">
-                    {cells.map((isActive, i) => (
-                        <div key={i} className={`contribution-cell ${isActive ? 'active' : ''} ${isInitialEffect ? 'transition-none' : ''}`}></div>
-                    ))}
+                <div className="w-full overflow-x-auto pb-4 custom-scrollbar">
+                    <div className="contribution-grid">
+                        {cells.map((isActive, i) => (
+                            <div key={i} className={`contribution-cell ${isActive ? 'active' : ''} ${isInitialEffect ? 'transition-none' : ''}`}></div>
+                        ))}
+                    </div>
                 </div>
             );
         };
 
-        // --- 1. Reusable Card Components (Flex-1 for uniform height, line-clamp for neat truncation) ---
+        // --- 1. Reusable Card Components (Responsive & Clean) ---
         const CertCard = ({ cert, onClick }) => (
             <motion.div 
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(255, 59, 59, 0.4)" }} 
                 onClick={() => onClick(cert)}
-                className="bg-dark-200 p-5 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all cursor-pointer flex flex-col group relative h-full"
+                className="bg-dark-200 p-4 md:p-5 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all cursor-pointer flex flex-col group relative h-full"
             >
                 <div className="flex-1 flex flex-col">
-                    <h3 className="font-bold text-lg group-hover:text-redAccent-100 transition-colors leading-snug line-clamp-2 mb-2" title={cert.title}>{cert.title}</h3>
+                    <h3 className="font-bold text-base md:text-lg group-hover:text-redAccent-100 transition-colors leading-snug line-clamp-2 mb-2" title={cert.title}>{cert.title}</h3>
                     <div className="flex items-center gap-2 w-full mt-auto mb-4 overflow-hidden">
                         <img 
                             src={`https://www.google.com/s2/favicons?domain=${cert.domain}&sz=128`} 
                             onError={(e) => { e.target.src = `https://via.placeholder.com/128/141414/ff3b3b?text=${cert.org.charAt(0)}` }}
-                            alt="Logo" className="w-5 h-5 rounded object-contain bg-white p-0.5 shrink-0" 
+                            alt="Logo" className="w-5 h-5 md:w-6 md:h-6 rounded object-contain bg-white p-0.5 shrink-0" 
                         />
-                        <span className="text-gray-300 font-medium text-sm truncate flex-1" title={cert.org}>{cert.org}</span>
+                        <span className="text-gray-300 font-medium text-xs md:text-sm truncate flex-1" title={cert.org}>{cert.org}</span>
                     </div>
                 </div>
                 
-                <img src={cert.certImage} alt="Certificate" className="w-full h-40 object-cover border border-gray-800 rounded-lg mb-4 shrink-0" />
+                <img src={cert.certImage} alt="Certificate" className="w-full h-32 md:h-40 object-cover border border-gray-800 rounded-lg mb-4 shrink-0" />
                 
-                <div className="text-xs text-gray-500 space-y-1 border-t border-gray-800 pt-3 w-full shrink-0">
+                <div className="text-[10px] md:text-xs text-gray-500 space-y-1 border-t border-gray-800 pt-3 w-full shrink-0">
                     <p>Issued: {cert.date}</p>
                     <p className="font-mono text-gray-400 truncate w-full" title={cert.credentialId || "Not Available"}>ID: {cert.credentialId || "Not Available"}</p>
                 </div>
@@ -251,23 +296,23 @@
             <motion.div 
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(255, 59, 59, 0.4)" }} 
                 onClick={() => onClick(course)}
-                className="bg-dark-200 p-5 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all cursor-pointer flex flex-col group relative h-full"
+                className="bg-dark-200 p-4 md:p-5 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all cursor-pointer flex flex-col group relative h-full"
             >
-                <img src={course.courseImage} alt="Course" className="w-full h-40 object-cover border border-gray-800 rounded-lg mb-4 shrink-0" />
+                <img src={course.courseImage} alt="Course" className="w-full h-32 md:h-40 object-cover border border-gray-800 rounded-lg mb-4 shrink-0" />
                 
                 <div className="flex-1 flex flex-col">
-                    <h3 className="font-bold text-lg group-hover:text-redAccent-100 transition-colors leading-snug line-clamp-2 mb-2" title={course.title}>{course.title}</h3>
+                    <h3 className="font-bold text-base md:text-lg group-hover:text-redAccent-100 transition-colors leading-snug line-clamp-2 mb-2" title={course.title}>{course.title}</h3>
                     <div className="flex items-center gap-2 w-full mt-auto mb-4 overflow-hidden">
                         <img 
                             src={`https://www.google.com/s2/favicons?domain=${course.domain}&sz=128`} 
                             onError={(e) => { e.target.src = `https://via.placeholder.com/128/141414/ff3b3b?text=${course.company.charAt(0)}` }}
-                            alt="Logo" className="w-5 h-5 rounded object-contain bg-white p-0.5 shrink-0" 
+                            alt="Logo" className="w-5 h-5 md:w-6 md:h-6 rounded object-contain bg-white p-0.5 shrink-0" 
                         />
-                        <span className="text-gray-300 font-medium text-sm truncate flex-1" title={course.company}>{course.company}</span>
+                        <span className="text-gray-300 font-medium text-xs md:text-sm truncate flex-1" title={course.company}>{course.company}</span>
                     </div>
                 </div>
                 
-                <div className="text-xs text-gray-500 space-y-1 border-t border-gray-800 pt-3 w-full shrink-0">
+                <div className="text-[10px] md:text-xs text-gray-500 space-y-1 border-t border-gray-800 pt-3 w-full shrink-0">
                     <p>Status: <span className={`${course.status === 'Completed' ? 'text-green-400' : 'text-yellow-400'} font-semibold`}>{course.status}</span></p>
                     {course.endDate && <p>Completed: {course.endDate}</p>}
                 </div>
@@ -278,23 +323,25 @@
             <motion.a 
                 href={platform.url} target="_blank" rel="noopener noreferrer"
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(255, 59, 59, 0.4)" }}
-                className="bg-dark-200 p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-4 group h-full"
+                className="bg-dark-200 p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-3 md:gap-4 group h-full"
             >
                 <img 
                     src={`https://www.google.com/s2/favicons?domain=${platform.domain}&sz=128`} 
                     onError={(e) => { e.target.src = `https://via.placeholder.com/128/141414/ff3b3b?text=${platform.name.charAt(0)}` }}
-                    alt={platform.name} className="w-12 h-12 rounded-lg bg-white p-1 object-contain group-hover:-rotate-6 transition-transform shrink-0" 
+                    alt={platform.name} className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-white p-1 object-contain group-hover:-rotate-6 transition-transform shrink-0" 
                 />
                 <div className="overflow-hidden flex-1">
-                    <h3 className="font-bold text-white group-hover:text-redAccent-100 truncate" title={platform.name}>{platform.name}</h3>
-                    <p className="text-sm text-gray-400 truncate" title={platform.handle}>{platform.handle}</p>
-                    <p className={`text-xs mt-1 font-semibold ${platform.status === 'Completed' || platform.status === 'Completed Labs' ? 'text-green-400' : 'text-yellow-400'}`}>{platform.status}</p>
+                    <h3 className="font-bold text-sm md:text-base text-white group-hover:text-redAccent-100 truncate" title={platform.name}>{platform.name}</h3>
+                    <p className="text-xs md:text-sm text-gray-400 truncate" title={platform.handle}>{platform.handle}</p>
+                    <p className={`text-[10px] md:text-xs mt-1 font-semibold ${platform.status === 'Completed' || platform.status === 'Completed Labs' ? 'text-green-400' : 'text-yellow-400'}`}>{platform.status}</p>
                 </div>
             </motion.a>
         );
 
-        // --- 2. Navbar Component ---
+        // --- 2. Mobile Responsive Navbar Component ---
         const Navbar = ({ currentTab, setCurrentTab }) => {
+            const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+            
             const tabs = [
                 { id: 'home', label: 'Home', icon: 'home' },
                 { id: 'certs', label: 'Certifications', icon: 'award' },
@@ -307,10 +354,13 @@
             return (
                 <nav className="fixed top-0 left-0 w-full z-50 glassmorphism border-b-0 border-t-0 border-l-0 border-r-0 border-b border-redAccent-100/30">
                     <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-                        <div className="font-bold text-xl flex items-center gap-2 cursor-pointer" onClick={() => setCurrentTab('home')}>
-                            <span className="text-redAccent-100 hidden sm:inline">Professor Owl</span>
+                        {/* Logo / Brand */}
+                        <div className="font-bold text-lg md:text-xl flex items-center gap-2 cursor-pointer" onClick={() => { setCurrentTab('home'); setIsMobileMenuOpen(false); }}>
+                            <span className="text-redAccent-100">Professor Owl</span>
                         </div>
-                        <div className="flex space-x-1 md:space-x-2 overflow-x-auto pb-1 scrollbar-hide">
+                        
+                        {/* Desktop Menu */}
+                        <div className="hidden md:flex space-x-2">
                             {tabs.map(tab => (
                                 <button
                                     key={tab.id}
@@ -318,12 +368,45 @@
                                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 whitespace-nowrap
                                         ${currentTab === tab.id ? 'bg-redAccent-100/20 text-white shadow-[0_0_10px_rgba(255,59,59,0.3)]' : 'text-gray-400 hover:text-white hover:bg-dark-200'}`}
                                 >
-                                    <Icon name={tab.icon} className="w-4 h-4 hidden md:block" />
+                                    <Icon name={tab.icon} className="w-4 h-4" />
                                     {tab.label}
                                 </button>
                             ))}
                         </div>
+
+                        {/* Mobile Hamburger Button */}
+                        <div className="md:hidden flex items-center">
+                            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="text-gray-300 hover:text-white focus:outline-none p-2">
+                                <Icon name={isMobileMenuOpen ? "x" : "menu"} className="w-6 h-6" />
+                            </button>
+                        </div>
                     </div>
+
+                    {/* Mobile Dropdown Menu */}
+                    <AnimatePresence>
+                        {isMobileMenuOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="md:hidden bg-dark-200 border-b border-redAccent-100/30 overflow-hidden"
+                            >
+                                <div className="px-4 py-3 space-y-1">
+                                    {tabs.map(tab => (
+                                        <button
+                                            key={tab.id}
+                                            onClick={() => { setCurrentTab(tab.id); setIsMobileMenuOpen(false); }}
+                                            className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all flex items-center gap-3
+                                                ${currentTab === tab.id ? 'bg-redAccent-100/20 text-white border-l-4 border-redAccent-100' : 'text-gray-400 hover:text-white hover:bg-dark-100'}`}
+                                        >
+                                            <Icon name={tab.icon} className="w-5 h-5" />
+                                            {tab.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </nav>
             );
         };
@@ -341,22 +424,22 @@
             return (
                 <motion.header 
                     initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-                    className="glassmorphism rounded-xl p-8 mb-8"
+                    className="glassmorphism rounded-xl p-6 md:p-8 mb-8"
                 >
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative">
+                        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative shrink-0">
                             <div className="absolute inset-0 bg-redAccent-100 rounded-full animate-pulse-glow opacity-70"></div>
-                            <img src="https://github.com/kerollosatnass.png" alt="Kerollos Atnass" className="w-32 h-32 rounded-full border-2 border-redAccent-100 relative z-10" />
+                            <img src="https://github.com/kerollosatnass.png" alt="Kerollos Atnass" className="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-redAccent-100 relative z-10" />
                         </motion.div>
-                        <div className="flex-1 text-center md:text-left">
-                            <h1 className="text-2xl md:text-3xl font-bold">Kerollos Atnass | Professor Owl</h1>
-                            <p className="text-redAccent-100 text-lg md:text-xl mb-2">@KerollosAtnass</p>
+                        <div className="flex-1 text-center md:text-left w-full">
+                            <h1 className="text-xl md:text-3xl font-bold">Kerollos Atnass | Professor Owl</h1>
+                            <p className="text-redAccent-100 text-base md:text-xl mb-2">@KerollosAtnass</p>
                             
                             <div className="h-6 mb-4">
                                 <DynamicTypewriter words={titles} />
                             </div>
 
-                            <div className="flex flex-col md:flex-row items-center gap-4 text-gray-400 mb-4 justify-center md:justify-start">
+                            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-gray-400 mb-4 justify-center md:justify-start flex-wrap text-sm md:text-base">
                                 <a href="https://www.google.com/maps/place/Egypt" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-redAccent-100 transition-colors"><Icon name="map-pin" className="w-4 h-4" /> Egypt</a>
                                 <p className="hidden md:block">•</p>
                                 <a href="mailto:KerollosAtnass@gmail.com" className="flex items-center gap-1 hover:text-redAccent-100 transition-colors"><Icon name="mail" className="w-4 h-4" /> KerollosAtnass@gmail.com</a>
@@ -364,10 +447,10 @@
                                 <a href="tel:+201140293372" className="flex items-center gap-1 hover:text-redAccent-100 transition-colors"><Icon name="phone" className="w-4 h-4" /> +20 114 029 3372</a>
                             </div>
                             <div className="flex justify-center md:justify-start gap-4">
-                                <a href="https://linkedin.com/in/kerollosatnass" target="_blank" className="text-gray-400 hover:text-[#0077b5] transition-colors"><Icon name="linkedin" className="w-5 h-5" /></a>
-                                <a href="https://github.com/kerollosatnass" target="_blank" className="text-gray-400 hover:text-white transition-colors"><Icon name="github" className="w-5 h-5" /></a>
-                                <a href="https://x.com/kerollosatnass" target="_blank" className="text-gray-400 hover:text-white transition-colors"><XIcon className="w-5 h-5" /></a>
-                                <a href="https://facebook.com/kerollosatnass" target="_blank" className="text-gray-400 hover:text-[#1877f2] transition-colors"><Icon name="facebook" className="w-5 h-5" /></a>
+                                <a href="https://linkedin.com/in/kerollosatnass" target="_blank" className="text-gray-400 hover:text-[#0077b5] transition-colors"><Icon name="linkedin" className="w-5 h-5 md:w-6 md:h-6" /></a>
+                                <a href="https://github.com/kerollosatnass" target="_blank" className="text-gray-400 hover:text-white transition-colors"><Icon name="github" className="w-5 h-5 md:w-6 md:h-6" /></a>
+                                <a href="https://x.com/kerollosatnass" target="_blank" className="text-gray-400 hover:text-white transition-colors"><XIcon className="w-5 h-5 md:w-6 md:h-6" /></a>
+                                <a href="https://facebook.com/kerollosatnass" target="_blank" className="text-gray-400 hover:text-[#1877f2] transition-colors"><Icon name="facebook" className="w-5 h-5 md:w-6 md:h-6" /></a>
                             </div>
                         </div>
                     </div>
@@ -375,37 +458,37 @@
             );
         };
 
-        // --- 4. Modals Components (z-[100]) ---
+        // --- 4. Modals Components (Responsive Modals) ---
         const CertModal = ({ cert, onClose }) => {
             if (!cert) return null;
             return (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm" onClick={onClose}>
                     <motion.div 
                         initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-                        className="bg-dark-300 border border-redAccent-100 p-6 md:p-8 rounded-xl max-w-3xl w-full relative flex flex-col items-center shadow-[0_0_30px_rgba(255,59,59,0.3)] max-h-[95vh] overflow-y-auto custom-scrollbar"
+                        className="bg-dark-300 border border-redAccent-100 p-4 md:p-8 rounded-xl w-[95%] max-w-3xl relative flex flex-col items-center shadow-[0_0_30px_rgba(255,59,59,0.3)] max-h-[85vh] overflow-y-auto custom-scrollbar"
                         onClick={e => e.stopPropagation()}
                     >
-                        <button onClick={onClose} className="absolute top-4 right-4 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-8 h-8 rounded-full font-bold flex items-center justify-center transition-colors z-10">X</button>
+                        <button onClick={onClose} className="absolute top-2 right-2 md:top-4 md:right-4 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-8 h-8 rounded-full font-bold flex items-center justify-center transition-colors z-10">X</button>
                         
-                        <div className="w-full">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-white">{cert.title}</h2>
+                        <div className="w-full mt-6 md:mt-2">
+                            <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6 text-center text-white">{cert.title}</h2>
                             
-                            <img src={cert.certImage} alt={cert.title} className="max-w-full max-h-[45vh] object-contain rounded-lg border border-gray-800 mb-6 mx-auto" />
+                            <img src={cert.certImage} alt={cert.title} className="max-w-full max-h-[30vh] md:max-h-[45vh] object-contain rounded-lg border border-gray-800 mb-4 md:mb-6 mx-auto" />
                             
-                            <div className="text-left bg-dark-200 p-5 rounded-xl border border-gray-800 mb-8 w-full max-w-2xl mx-auto space-y-2">
+                            <div className="text-left bg-dark-200 p-4 md:p-5 rounded-xl border border-gray-800 mb-6 md:mb-8 w-full max-w-2xl mx-auto space-y-2 text-sm md:text-base">
                                 <p className="text-gray-400">Provided by: <span className="text-white font-semibold">{cert.org}</span></p>
-                                <p className="text-gray-400">Credential ID: <span className="text-white font-mono">{cert.credentialId || "Not Available"}</span></p>
+                                <p className="text-gray-400 break-all">Credential ID: <span className="text-white font-mono">{cert.credentialId || "Not Available"}</span></p>
                                 <p className="text-gray-400">Issued: <span className="text-white">{cert.date}</span></p>
                             </div>
 
-                            <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full">
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 w-full">
                                 {cert.certLink && (
-                                    <a href={cert.certLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-redAccent-100 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-600 transition-colors w-full md:w-auto">
-                                        <Icon name="award" className="w-5 h-5" /> View Certificate
+                                    <a href={cert.certLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-redAccent-100 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-600 transition-colors w-full sm:w-auto text-sm md:text-base">
+                                        <Icon name="award" className="w-4 h-4 md:w-5 md:h-5" /> View Certificate
                                     </a>
                                 )}
-                                <a href={cert.linkedinUrl || "https://www.linkedin.com/in/kerollosatnass/"} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#0077b5] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#005582] transition-colors w-full md:w-auto">
-                                    <Icon name="linkedin" className="w-5 h-5" /> View in LinkedIn
+                                <a href={cert.linkedinUrl || "https://www.linkedin.com/in/kerollosatnass/"} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-[#0077b5] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#005582] transition-colors w-full sm:w-auto text-sm md:text-base">
+                                    <Icon name="linkedin" className="w-4 h-4 md:w-5 md:h-5" /> View in LinkedIn
                                 </a>
                             </div>
                         </div>
@@ -420,32 +503,32 @@
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm" onClick={onClose}>
                     <motion.div 
                         initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-                        className="bg-dark-300 border border-redAccent-100 p-6 md:p-8 rounded-xl max-w-3xl w-full relative flex flex-col shadow-[0_0_30px_rgba(255,59,59,0.3)] max-h-[95vh] overflow-y-auto custom-scrollbar"
+                        className="bg-dark-300 border border-redAccent-100 p-4 md:p-8 rounded-xl w-[95%] max-w-3xl relative flex flex-col shadow-[0_0_30px_rgba(255,59,59,0.3)] max-h-[85vh] overflow-y-auto custom-scrollbar"
                         onClick={e => e.stopPropagation()}
                     >
-                        <button onClick={onClose} className="absolute top-4 right-4 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-8 h-8 rounded-full font-bold flex items-center justify-center transition-colors z-10">X</button>
+                        <button onClick={onClose} className="absolute top-2 right-2 md:top-4 md:right-4 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-8 h-8 rounded-full font-bold flex items-center justify-center transition-colors z-10">X</button>
                         
-                        <div className="w-full">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-white">{course.title}</h2>
-                            <img src={course.courseImage} alt={course.title} className="max-w-full max-h-[40vh] object-contain rounded-lg border border-gray-800 mb-6 mx-auto" />
+                        <div className="w-full mt-6 md:mt-2">
+                            <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6 text-center text-white">{course.title}</h2>
+                            <img src={course.courseImage} alt={course.title} className="max-w-full max-h-[30vh] md:max-h-[40vh] object-contain rounded-lg border border-gray-800 mb-4 md:mb-6 mx-auto" />
                             
-                            <div className="text-left bg-dark-200 p-5 rounded-xl border border-gray-800 mb-6 space-y-2">
+                            <div className="text-left bg-dark-200 p-4 md:p-5 rounded-xl border border-gray-800 mb-4 md:mb-6 space-y-2 text-sm md:text-base">
                                 <p className="text-gray-400">Provided by: <span className="text-white font-semibold">{course.company}</span></p>
                                 <p className="text-gray-400">Status: <span className={`${course.status === 'Completed' ? 'text-green-400' : 'text-yellow-400'} font-semibold`}>{course.status}</span></p>
                                 {course.endDate && <p className="text-gray-400">Completed: <span className="text-white">{course.endDate}</span></p>}
                             </div>
 
-                            <div className="mb-6">
-                                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2"><Icon name="list" className="w-5 h-5 text-redAccent-100" /> Course Content</h3>
-                                <ul className="list-disc list-inside text-gray-300 space-y-2 ml-2 leading-relaxed">
+                            <div className="mb-4 md:mb-6">
+                                <h3 className="text-base md:text-lg font-semibold text-white mb-2 md:mb-3 flex items-center gap-2"><Icon name="list" className="w-4 h-4 md:w-5 md:h-5 text-redAccent-100" /> Course Content</h3>
+                                <ul className="list-disc list-inside text-gray-300 space-y-1 md:space-y-2 ml-1 md:ml-2 leading-relaxed text-sm md:text-base">
                                     {course.content.map((item, idx) => (
                                         <li key={idx}>{item}</li>
                                     ))}
                                 </ul>
                             </div>
 
-                            <div className="border-t border-gray-800 pt-4 mt-6 text-center">
-                                <p className="text-xs text-gray-500">Instructor: <span className="font-semibold text-gray-400">{course.instructor}</span></p>
+                            <div className="border-t border-gray-800 pt-4 mt-4 md:mt-6 text-center">
+                                <p className="text-[10px] md:text-xs text-gray-500">Instructor: <span className="font-semibold text-gray-400">{course.instructor}</span></p>
                             </div>
                         </div>
                     </motion.div>
@@ -459,27 +542,27 @@
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm" onClick={onClose}>
                     <motion.div 
                         initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-                        className="bg-dark-300 border border-redAccent-100 p-6 md:p-8 rounded-xl max-w-4xl w-full relative flex flex-col shadow-[0_0_30px_rgba(255,59,59,0.3)] max-h-[90vh]"
+                        className="bg-dark-300 border border-redAccent-100 p-4 md:p-8 rounded-xl w-[95%] max-w-4xl relative flex flex-col shadow-[0_0_30px_rgba(255,59,59,0.3)] max-h-[85vh]"
                         onClick={e => e.stopPropagation()}
                     >
-                        <button onClick={onClose} className="absolute top-4 right-4 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-8 h-8 rounded-full font-bold flex items-center justify-center transition-colors z-10">X</button>
+                        <button onClick={onClose} className="absolute top-2 right-2 md:top-4 md:right-4 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-8 h-8 rounded-full font-bold flex items-center justify-center transition-colors z-10">X</button>
                         
-                        <div className="overflow-y-auto pr-2 custom-scrollbar">
-                            <div className="mb-6 border-b border-gray-800 pb-4">
-                                <span className="bg-redAccent-100/20 text-redAccent-100 text-xs px-2 py-1 rounded font-bold uppercase tracking-wider mb-3 inline-block">Test Only</span>
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{writeup.title}</h2>
-                                <div className="flex gap-4 text-sm text-gray-500 font-medium">
-                                    <span className="flex items-center gap-1"><Icon name="calendar" className="w-4 h-4" /> {writeup.date}</span>
-                                    <span className="flex items-center gap-1"><Icon name="clock" className="w-4 h-4" /> {writeup.readTime}</span>
+                        <div className="overflow-y-auto pr-2 custom-scrollbar mt-6 md:mt-0">
+                            <div className="mb-4 md:mb-6 border-b border-gray-800 pb-3 md:pb-4">
+                                <span className="bg-redAccent-100/20 text-redAccent-100 text-[10px] md:text-xs px-2 py-1 rounded font-bold uppercase tracking-wider mb-2 md:mb-3 inline-block">Test Only</span>
+                                <h2 className="text-xl md:text-3xl font-bold text-white mb-3 md:mb-4">{writeup.title}</h2>
+                                <div className="flex flex-wrap gap-3 md:gap-4 text-xs md:text-sm text-gray-500 font-medium">
+                                    <span className="flex items-center gap-1"><Icon name="calendar" className="w-3 h-3 md:w-4 md:h-4" /> {writeup.date}</span>
+                                    <span className="flex items-center gap-1"><Icon name="clock" className="w-3 h-3 md:w-4 md:h-4" /> {writeup.readTime}</span>
                                 </div>
                             </div>
                             
-                            <div className="text-gray-300 space-y-4 mb-8 leading-relaxed">
+                            <div className="text-sm md:text-base text-gray-300 space-y-3 md:space-y-4 mb-6 md:mb-8 leading-relaxed">
                                 {writeup.content}
                             </div>
                             
-                            <div className="pt-6 border-t border-gray-800 text-center">
-                                <a href={writeup.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-redAccent-100 text-white px-8 py-3 rounded-lg font-bold hover:bg-red-600 transition-colors">
+                            <div className="pt-4 md:pt-6 border-t border-gray-800 text-center">
+                                <a href={writeup.link} target="_blank" rel="noopener noreferrer" className="inline-block bg-redAccent-100 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg text-sm md:text-base font-bold hover:bg-red-600 transition-colors w-full sm:w-auto">
                                     View full write up
                                 </a>
                             </div>
@@ -496,16 +579,16 @@
                 <div className="fixed inset-0 z-[90] flex flex-col items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-sm" onClick={onClose}>
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} 
-                        className="bg-dark-300 border border-gray-700 p-6 rounded-xl w-full max-w-6xl max-h-[95vh] overflow-hidden flex flex-col shadow-2xl relative" 
+                        className="bg-dark-300 border border-gray-700 p-4 md:p-6 rounded-xl w-full max-w-6xl max-h-[90vh] overflow-hidden flex flex-col shadow-2xl relative" 
                         onClick={e => e.stopPropagation()}
                     >
-                        <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-800 shrink-0">
-                            <h2 className="text-2xl font-bold flex items-center gap-2"><Icon name="grid" className="text-redAccent-100"/> All {data.title}</h2>
+                        <div className="flex justify-between items-center mb-4 md:mb-6 pb-3 md:pb-4 border-b border-gray-800 shrink-0">
+                            <h2 className="text-lg md:text-2xl font-bold flex items-center gap-2"><Icon name="grid" className="text-redAccent-100 w-5 h-5 md:w-6 md:h-6"/> All {data.title}</h2>
                             <button onClick={onClose} className="bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-8 h-8 rounded-full font-bold flex items-center justify-center transition-colors">X</button>
                         </div>
                         
                         <div className="overflow-y-auto custom-scrollbar flex-1 pr-2 pb-4">
-                            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6`}>
+                            <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6`}>
                                 {data.items.map(item => (
                                     <React.Fragment key={item.id}>
                                         {data.type === 'certs' && <CertCard cert={item} onClick={onCertClick} />}
@@ -530,11 +613,11 @@
                 <React.Fragment>
                     <p><strong>Disclaimer:</strong> This is a placeholder writeup. It is not real and is only used for testing the portfolio layout until I publish my actual security research and bug bounty writeups.</p>
                     <p>In modern web applications, business logic vulnerabilities are often overlooked by automated scanners. These flaws occur when an application's design and logic fail to handle unusual or unexpected sequences of user actions securely.</p>
-                    <h3 className="text-xl font-bold text-white mt-6 mb-2">The Vulnerability</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-white mt-4 md:mt-6 mb-2">The Vulnerability</h3>
                     <p>During a recent engagement, I discovered a critical flaw in the password reset mechanism of a target application. The application allowed users to request a password reset token, which was sent to their email. However, the token validation process did not properly verify the binding between the token and the user account.</p>
-                    <h3 className="text-xl font-bold text-white mt-6 mb-2">Exploitation</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-white mt-4 md:mt-6 mb-2">Exploitation</h3>
                     <p>By requesting a token for an attacker-controlled account and using that valid token alongside the victim's email address in the final password reset request, it was possible to overwrite the victim's password.</p>
-                    <pre className="bg-dark-100 p-4 rounded-lg text-redAccent-100 font-mono text-sm overflow-x-auto my-4 border border-gray-800">
+                    <pre className="bg-dark-100 p-3 md:p-4 rounded-lg text-redAccent-100 font-mono text-xs md:text-sm overflow-x-auto my-3 md:my-4 border border-gray-800">
 {`POST /api/v1/password-reset HTTP/1.1
 Host: target.com
 Content-Type: application/json
@@ -730,43 +813,43 @@ Content-Type: application/json
             const totalFollowers = socialFollowers.reduce((sum, item) => sum + item.count, 0);
 
             return (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6 md:space-y-8">
                     <ProfileHeader />
                     
                     {/* About Me Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2"><Icon name="user" className="w-5 h-5" /> About Me</h2>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 flex items-center gap-2"><Icon name="user" className="w-5 h-5" /> About Me</h2>
                         <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                             I am a highly motivated Offensive Security Engineer and Bug Bounty Hunter with a strong foundation in Information Technology. Currently studying at Delta Technological University, I specialize in web application penetration testing, discovering logic flaws, and securing digital infrastructure. I am passionate about continuous learning, participating in CTFs, and contributing to the cybersecurity community. My goal is to proactively identify vulnerabilities and help build more resilient systems.
                         </p>
                     </div>
 
                     {/* Skills Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2"><Icon name="terminal" className="w-5 h-5" /> Technical Skills & Tools</h2>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="terminal" className="w-5 h-5" /> Technical Skills & Tools</h2>
                         
-                        <div className="space-y-6">
+                        <div className="space-y-4 md:space-y-6">
                             <div>
-                                <h3 className="text-xs md:text-sm text-gray-400 mb-3 uppercase tracking-wider font-semibold">Offensive Security & Concepts</h3>
+                                <h3 className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 uppercase tracking-wider font-semibold">Offensive Security & Concepts</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {['Web Pentesting', 'Network Security', 'Vulnerability Assessment', 'Logic Flaws', 'SQLi / XSS', 'OSINT'].map(skill => (
-                                        <span key={skill} className="bg-dark-200 border border-gray-800 text-gray-300 px-3 py-1.5 rounded-full text-xs md:text-sm hover:border-redAccent-100 hover:text-white hover:shadow-[0_0_10px_rgba(255,59,59,0.2)] transition-all cursor-default">{skill}</span>
+                                        <span key={skill} className="bg-dark-200 border border-gray-800 text-gray-300 px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm hover:border-redAccent-100 hover:text-white hover:shadow-[0_0_10px_rgba(255,59,59,0.2)] transition-all cursor-default">{skill}</span>
                                     ))}
                                 </div>
                             </div>
                             <div>
-                                <h3 className="text-xs md:text-sm text-gray-400 mb-3 uppercase tracking-wider font-semibold">Tools & Software</h3>
+                                <h3 className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 uppercase tracking-wider font-semibold">Tools & Software</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {['Burp Suite', 'Nmap', 'Metasploit', 'Wireshark', 'Gobuster', 'Amass', 'Linux'].map(skill => (
-                                        <span key={skill} className="bg-dark-200 border border-gray-800 text-gray-300 px-3 py-1.5 rounded-full text-xs md:text-sm hover:border-redAccent-100 hover:text-white hover:shadow-[0_0_10px_rgba(255,59,59,0.2)] transition-all cursor-default">{skill}</span>
+                                        <span key={skill} className="bg-dark-200 border border-gray-800 text-gray-300 px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm hover:border-redAccent-100 hover:text-white hover:shadow-[0_0_10px_rgba(255,59,59,0.2)] transition-all cursor-default">{skill}</span>
                                     ))}
                                 </div>
                             </div>
                             <div>
-                                <h3 className="text-xs md:text-sm text-gray-400 mb-3 uppercase tracking-wider font-semibold">Programming & Scripting</h3>
+                                <h3 className="text-xs md:text-sm text-gray-400 mb-2 md:mb-3 uppercase tracking-wider font-semibold">Programming & Scripting</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {['Python', 'Go', 'Bash', 'C++', 'JavaScript'].map(skill => (
-                                        <span key={skill} className="bg-dark-200 border border-gray-800 text-gray-300 px-3 py-1.5 rounded-full text-xs md:text-sm hover:border-redAccent-100 hover:text-white hover:shadow-[0_0_10px_rgba(255,59,59,0.2)] transition-all cursor-default">{skill}</span>
+                                        <span key={skill} className="bg-dark-200 border border-gray-800 text-gray-300 px-3 py-1 md:py-1.5 rounded-full text-xs md:text-sm hover:border-redAccent-100 hover:text-white hover:shadow-[0_0_10px_rgba(255,59,59,0.2)] transition-all cursor-default">{skill}</span>
                                     ))}
                                 </div>
                             </div>
@@ -774,53 +857,53 @@ Content-Type: application/json
                     </div>
 
                     {/* Audience & Reach */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2"><Icon name="users" className="w-5 h-5" /> Audience & Reach</h2>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="users" className="w-5 h-5" /> Audience & Reach</h2>
                         
-                        <div className="bg-gradient-to-r from-redAccent-300/20 to-dark-200 border border-redAccent-100/30 p-6 rounded-xl text-center mb-8 shadow-[0_0_15px_rgba(255,59,59,0.15)]">
-                            <h3 className="text-gray-400 text-lg mb-2">Total Audience</h3>
-                            <p className="text-5xl font-bold text-white mb-2">
+                        <div className="bg-gradient-to-r from-redAccent-300/20 to-dark-200 border border-redAccent-100/30 p-4 md:p-6 rounded-xl text-center mb-6 md:mb-8 shadow-[0_0_15px_rgba(255,59,59,0.15)]">
+                            <h3 className="text-gray-400 text-sm md:text-lg mb-1 md:mb-2">Total Audience</h3>
+                            <p className="text-3xl md:text-5xl font-bold text-white mb-1 md:mb-2">
                                 <AnimatedCounter endValue={totalFollowers} /><span className="text-redAccent-100">+</span>
                             </p>
-                            <p className="text-sm text-gray-500">Across all active platforms</p>
+                            <p className="text-xs md:text-sm text-gray-500">Across all active platforms</p>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
                             {socialFollowers.map((stat, i) => (
                                 <a key={i} href={stat.url} target="_blank" rel="noopener noreferrer" 
-                                   className="bg-dark-200 p-4 rounded-lg text-center border border-gray-800 hover:border-gray-600 transition-all group cursor-pointer">
+                                   className="bg-dark-200 p-3 md:p-4 rounded-lg text-center border border-gray-800 hover:border-gray-600 transition-all group cursor-pointer">
                                     {stat.icon === 'x' ? (
-                                        <XIcon className={`w-6 h-6 mx-auto mb-3 text-gray-500 ${stat.color} transition-colors`} />
+                                        <XIcon className={`w-5 h-5 md:w-6 md:h-6 mx-auto mb-2 md:mb-3 text-gray-500 ${stat.color} transition-colors`} />
                                     ) : (
-                                        <Icon name={stat.icon} className={`w-6 h-6 mx-auto mb-3 text-gray-500 ${stat.color} transition-colors`} />
+                                        <Icon name={stat.icon} className={`w-5 h-5 md:w-6 md:h-6 mx-auto mb-2 md:mb-3 text-gray-500 ${stat.color} transition-colors`} />
                                     )}
-                                    <p className="text-xl font-bold text-gray-200 group-hover:text-white">{stat.count.toLocaleString()}</p>
-                                    <p className="text-xs text-gray-500">{stat.platform}</p>
+                                    <p className="text-lg md:text-xl font-bold text-gray-200 group-hover:text-white">{stat.count.toLocaleString()}</p>
+                                    <p className="text-[10px] md:text-xs text-gray-500">{stat.platform}</p>
                                 </a>
                             ))}
                         </div>
 
-                        <div className="mt-8 border-t border-gray-800 pt-6">
-                            <h3 className="text-lg font-medium mb-4 flex items-center gap-2"><Icon name="git-commit" className="w-5 h-5 text-redAccent-100" /> GitHub Contribution Graph</h3>
+                        <div className="mt-6 md:mt-8 border-t border-gray-800 pt-5 md:pt-6">
+                            <h3 className="text-base md:text-lg font-medium mb-3 md:mb-4 flex items-center gap-2"><Icon name="git-commit" className="w-4 h-4 md:w-5 md:h-5 text-redAccent-100" /> GitHub Contribution Graph</h3>
                             <GitHubContributionGraph />
                         </div>
                     </div>
 
                     {/* Latest YouTube Videos */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="youtube" className="w-5 h-5 text-redAccent-100"/> Latest YouTube Videos</h2>
-                            <a href="https://youtube.com/@kerollosatnass" target="_blank" className="text-sm text-redAccent-100 hover:text-white transition-colors">Visit Channel →</a>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <div className="flex justify-between items-center mb-4 md:mb-6">
+                            <h2 className="text-lg md:text-xl font-semibold flex items-center gap-2"><Icon name="youtube" className="w-5 h-5 text-redAccent-100"/> Latest YouTube Videos</h2>
+                            <a href="https://youtube.com/@kerollosatnass" target="_blank" className="text-xs md:text-sm text-redAccent-100 hover:text-white transition-colors">Visit Channel →</a>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {[1, 2, 3].map(item => (
                                 <a key={item} href="https://youtube.com/@kerollosatnass" target="_blank" rel="noopener noreferrer" className="bg-dark-200 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex flex-col group overflow-hidden">
-                                    <div className="w-full h-32 bg-dark-100 relative flex items-center justify-center border-b border-gray-800">
-                                        <Icon name="play-circle" className="w-10 h-10 text-gray-600 group-hover:text-redAccent-100 transition-colors" />
+                                    <div className="w-full h-24 md:h-32 bg-dark-100 relative flex items-center justify-center border-b border-gray-800">
+                                        <Icon name="play-circle" className="w-8 h-8 md:w-10 md:h-10 text-gray-600 group-hover:text-redAccent-100 transition-colors" />
                                     </div>
-                                    <div className="p-4">
-                                        <h3 className="font-bold text-white text-sm group-hover:text-redAccent-100 transition-colors">Cybersecurity Tutorial & Walkthrough</h3>
-                                        <p className="text-xs text-gray-500 mt-2">New Upload</p>
+                                    <div className="p-3 md:p-4">
+                                        <h3 className="font-bold text-white text-xs md:text-sm group-hover:text-redAccent-100 transition-colors">Cybersecurity Tutorial & Walkthrough</h3>
+                                        <p className="text-[10px] md:text-xs text-gray-500 mt-1 md:mt-2">New Upload</p>
                                     </div>
                                 </a>
                             ))}
@@ -828,12 +911,12 @@ Content-Type: application/json
                     </div>
 
                     {/* Latest 3 Certifications */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="award" className="w-5 h-5"/> Latest Verified Certifications</h2>
-                            <button onClick={() => setCurrentTab('certs')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <div className="flex justify-between items-center mb-4 md:mb-6">
+                            <h2 className="text-lg md:text-xl font-semibold flex items-center gap-2"><Icon name="award" className="w-5 h-5"/> Latest Verified Certifications</h2>
+                            <button onClick={() => setCurrentTab('certs')} className="text-xs md:text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                             {myCertifications.slice(0, 3).map(cert => (
                                 <CertCard key={cert.id} cert={cert} onClick={setSelectedCert} />
                             ))}
@@ -841,12 +924,12 @@ Content-Type: application/json
                     </div>
 
                     {/* Current Learning & Courses */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="book" className="w-5 h-5"/> Current Learning</h2>
-                            <button onClick={() => setCurrentTab('certs')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <div className="flex justify-between items-center mb-4 md:mb-6">
+                            <h2 className="text-lg md:text-xl font-semibold flex items-center gap-2"><Icon name="book" className="w-5 h-5"/> Current Learning</h2>
+                            <button onClick={() => setCurrentTab('certs')} className="text-xs md:text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                             {myCourses.filter(c => c.status === 'In Progress').slice(0, 3).map(course => (
                                 <CourseCard key={course.id} course={course} onClick={setSelectedCourse} />
                             ))}
@@ -854,21 +937,21 @@ Content-Type: application/json
                     </div>
 
                     {/* Latest Writeups Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="book-open" className="w-5 h-5"/> Latest Writeups</h2>
-                            <button onClick={() => setCurrentTab('writeups')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <div className="flex justify-between items-center mb-4 md:mb-6">
+                            <h2 className="text-lg md:text-xl font-semibold flex items-center gap-2"><Icon name="book-open" className="w-5 h-5"/> Latest Writeups</h2>
+                            <button onClick={() => setCurrentTab('writeups')} className="text-xs md:text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
                         <div className="grid grid-cols-1 gap-4">
                             <motion.div 
                                 onClick={() => setSelectedWriteup(testWriteupData)}
                                 whileHover={{ y: -3, boxShadow: "0 10px 25px -5px rgba(255, 59, 59, 0.2)" }}
-                                className="bg-dark-200 p-5 rounded-xl border border-dashed border-redAccent-100/50 hover:border-solid hover:border-redAccent-100 transition-all block cursor-pointer group relative overflow-hidden"
+                                className="bg-dark-200 p-4 md:p-5 rounded-xl border border-dashed border-redAccent-100/50 hover:border-solid hover:border-redAccent-100 transition-all block cursor-pointer group relative overflow-hidden"
                             >
-                                <div className="absolute top-4 right-4 bg-redAccent-100/20 text-redAccent-100 text-xs px-2 py-1 rounded font-bold uppercase tracking-wider">Test Only</div>
-                                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-redAccent-100 flex items-center gap-2 pr-16"><Icon name="file-text" className="w-4 h-4" /> {testWriteupData.title}</h3>
-                                <p className="text-gray-400 text-sm mb-4 line-clamp-2">This is a placeholder writeup. It is not real and is only used for testing the portfolio layout until I publish my actual security research and bug bounty writeups.</p>
-                                <div className="flex gap-4 text-xs text-gray-500 font-medium">
+                                <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-redAccent-100/20 text-redAccent-100 text-[10px] md:text-xs px-2 py-1 rounded font-bold uppercase tracking-wider">Test Only</div>
+                                <h3 className="text-base md:text-lg font-bold text-white mb-2 group-hover:text-redAccent-100 flex items-center gap-2 pr-16"><Icon name="file-text" className="w-4 h-4" /> {testWriteupData.title}</h3>
+                                <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">This is a placeholder writeup. It is not real and is only used for testing the portfolio layout until I publish my actual security research and bug bounty writeups.</p>
+                                <div className="flex gap-3 md:gap-4 text-[10px] md:text-xs text-gray-500 font-medium">
                                     <span className="flex items-center gap-1"><Icon name="calendar" className="w-3 h-3" /> {testWriteupData.date}</span>
                                     <span className="flex items-center gap-1"><Icon name="clock" className="w-3 h-3" /> {testWriteupData.readTime}</span>
                                 </div>
@@ -877,33 +960,33 @@ Content-Type: application/json
                     </div>
 
                     {/* Latest 3 Projects */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-xl font-semibold flex items-center gap-2"><Icon name="code" className="w-5 h-5"/> Latest Projects</h2>
-                            <button onClick={() => setCurrentTab('projects')} className="text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <div className="flex justify-between items-center mb-4 md:mb-6">
+                            <h2 className="text-lg md:text-xl font-semibold flex items-center gap-2"><Icon name="code" className="w-5 h-5"/> Latest Projects</h2>
+                            <button onClick={() => setCurrentTab('projects')} className="text-xs md:text-sm text-redAccent-100 hover:text-white transition-colors">View All →</button>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {recentRepos.length > 0 ? recentRepos.map(repo => (
                                 <a key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer"
                                     className="bg-dark-200 p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex flex-col h-full group"
                                 >
-                                    <h3 className="text-md font-bold text-white mb-2 flex items-center gap-2 group-hover:text-redAccent-100"><Icon name="folder" className="text-redAccent-100 w-4 h-4" /> {repo.name}</h3>
-                                    <p className="text-gray-400 text-xs mb-4 flex-1">{repo.description || 'Security tool / script.'}</p>
+                                    <h3 className="text-sm md:text-md font-bold text-white mb-2 flex items-center gap-2 group-hover:text-redAccent-100"><Icon name="folder" className="text-redAccent-100 w-4 h-4" /> {repo.name}</h3>
+                                    <p className="text-gray-400 text-xs mb-3 md:mb-4 flex-1 line-clamp-2">{repo.description || 'Security tool / script.'}</p>
                                 </a>
-                            )) : <p className="text-gray-500 text-sm">Loading projects...</p>}
+                            )) : <p className="text-gray-500 text-xs md:text-sm">Loading projects...</p>}
                         </div>
                     </div>
 
                     {/* Latest Updates */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2"><Icon name="activity" className="w-5 h-5" /> Latest Updates</h2>
-                        <div className="space-y-4">
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="activity" className="w-5 h-5" /> Latest Updates</h2>
+                        <div className="space-y-3 md:space-y-4">
                             {activities.map((activity, index) => (
-                                <div key={index} className="flex items-start p-4 bg-dark-200 rounded-lg border-l-4 border-redAccent-100">
-                                    <div className="mr-4 p-2 bg-redAccent-100/20 rounded-full text-redAccent-100"><Icon name={activity.icon} className="w-4 h-4" /></div>
+                                <div key={index} className="flex items-start p-3 md:p-4 bg-dark-200 rounded-lg border-l-4 border-redAccent-100">
+                                    <div className="mr-3 md:mr-4 p-1.5 md:p-2 bg-redAccent-100/20 rounded-full text-redAccent-100 shrink-0"><Icon name={activity.icon} className="w-3 h-3 md:w-4 md:h-4" /></div>
                                     <div className="flex-1">
-                                        <p className="font-medium text-sm md:text-base">{activity.text}</p>
-                                        <p className="text-gray-400 text-xs mt-1">{activity.time}</p>
+                                        <p className="font-medium text-xs md:text-sm">{activity.text}</p>
+                                        <p className="text-gray-400 text-[10px] md:text-xs mt-1">{activity.time}</p>
                                     </div>
                                 </div>
                             ))}
@@ -915,20 +998,20 @@ Content-Type: application/json
 
         const CertsTab = ({ setSelectedCert, setSelectedCourse, setViewAllData }) => {
             return (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6 md:space-y-8">
                     
                     {/* 1. Official Certifications Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2"><Icon name="award" /> Verified Certifications</h2>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="award" /> Verified Certifications</h2>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                             {myCertifications.slice(0, 4).map(cert => (
                                 <CertCard key={cert.id} cert={cert} onClick={setSelectedCert} />
                             ))}
                         </div>
                         {myCertifications.length > 4 && (
-                            <div className="mt-8 text-center">
-                                <button onClick={() => setViewAllData({ title: 'Verified Certifications', type: 'certs', items: myCertifications })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-8 py-3 rounded-xl text-sm font-medium transition-all group">
+                            <div className="mt-6 md:mt-8 text-center">
+                                <button onClick={() => setViewAllData({ title: 'Verified Certifications', type: 'certs', items: myCertifications })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-6 py-2 md:px-8 md:py-3 rounded-xl text-xs md:text-sm font-medium transition-all group">
                                     View All <span className="text-redAccent-100 group-hover:text-white transition-colors">→</span>
                                 </button>
                             </div>
@@ -936,17 +1019,17 @@ Content-Type: application/json
                     </div>
 
                     {/* 2. Courses & Training Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2"><Icon name="book" /> Courses & Training</h2>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="book" /> Courses & Training</h2>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                             {myCourses.slice(0, 4).map(course => (
                                 <CourseCard key={course.id} course={course} onClick={setSelectedCourse} />
                             ))}
                         </div>
                         {myCourses.length > 4 && (
-                            <div className="mt-8 text-center">
-                                <button onClick={() => setViewAllData({ title: 'Courses & Training', type: 'courses', items: myCourses })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-8 py-3 rounded-xl text-sm font-medium transition-all group">
+                            <div className="mt-6 md:mt-8 text-center">
+                                <button onClick={() => setViewAllData({ title: 'Courses & Training', type: 'courses', items: myCourses })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-6 py-2 md:px-8 md:py-3 rounded-xl text-xs md:text-sm font-medium transition-all group">
                                     View All <span className="text-redAccent-100 group-hover:text-white transition-colors">→</span>
                                 </button>
                             </div>
@@ -954,17 +1037,17 @@ Content-Type: application/json
                     </div>
 
                     {/* 3. Platforms Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2"><Icon name="target" /> Platforms</h2>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="target" /> Platforms</h2>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                             {myPlatforms.slice(0, 4).map(platform => (
                                 <PlatformCard key={platform.id} platform={platform} />
                             ))}
                         </div>
                         {myPlatforms.length > 4 && (
-                            <div className="mt-8 text-center">
-                                <button onClick={() => setViewAllData({ title: 'Platforms', type: 'platforms', items: myPlatforms })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-8 py-3 rounded-xl text-sm font-medium transition-all group">
+                            <div className="mt-6 md:mt-8 text-center">
+                                <button onClick={() => setViewAllData({ title: 'Platforms', type: 'platforms', items: myPlatforms })} className="inline-block bg-dark-200 border border-gray-800 hover:border-redAccent-100 text-white px-6 py-2 md:px-8 md:py-3 rounded-xl text-xs md:text-sm font-medium transition-all group">
                                     View All <span className="text-redAccent-100 group-hover:text-white transition-colors">→</span>
                                 </button>
                             </div>
@@ -990,24 +1073,24 @@ Content-Type: application/json
             }, []);
 
             return (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="glassmorphism rounded-xl p-6">
-                    <h2 className="text-xl font-semibold mb-2 flex items-center gap-2"><Icon name="github" /> Open Source Projects</h2>
-                    <p className="text-gray-400 mb-8">Fetching directly from GitHub (@KerollosAtnass)...</p>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="glassmorphism rounded-xl p-5 md:p-6">
+                    <h2 className="text-lg md:text-xl font-semibold mb-2 flex items-center gap-2"><Icon name="github" /> Open Source Projects</h2>
+                    <p className="text-gray-400 text-sm mb-6 md:mb-8">Fetching directly from GitHub (@KerollosAtnass)...</p>
 
                     {loading ? (
-                        <div className="flex justify-center py-12"><div className="w-10 h-10 border-4 border-dark-200 border-t-redAccent-100 rounded-full animate-spin"></div></div>
+                        <div className="flex justify-center py-12"><div className="w-8 h-8 md:w-10 md:h-10 border-4 border-dark-200 border-t-redAccent-100 rounded-full animate-spin"></div></div>
                     ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                             {repos.map(repo => (
                                 <motion.a 
                                     key={repo.id} href={repo.html_url} target="_blank" rel="noopener noreferrer"
                                     whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(255, 59, 59, 0.4)" }}
-                                    className="bg-dark-200 p-5 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex flex-col h-full group"
+                                    className="bg-dark-200 p-4 md:p-5 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex flex-col h-full group"
                                 >
-                                    <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2 group-hover:text-redAccent-100"><Icon name="folder" className="text-redAccent-100 w-5 h-5" /> {repo.name}</h3>
-                                    <p className="text-gray-400 text-sm mb-4 flex-1">{repo.description || 'A ProfessorOwl security tool / script.'}</p>
-                                    <div className="flex gap-4 text-xs text-gray-500 font-medium border-t border-gray-800 pt-3">
-                                        <span className="flex items-center gap-1"><div className="w-2 h-2 rounded-full bg-redAccent-100"></div>{repo.language || 'Code'}</span>
+                                    <h3 className="text-base md:text-lg font-bold text-white mb-2 flex items-center gap-2 group-hover:text-redAccent-100"><Icon name="folder" className="text-redAccent-100 w-4 h-4 md:w-5 md:h-5" /> {repo.name}</h3>
+                                    <p className="text-gray-400 text-xs md:text-sm mb-4 flex-1 line-clamp-2">{repo.description || 'A ProfessorOwl security tool / script.'}</p>
+                                    <div className="flex gap-3 md:gap-4 text-[10px] md:text-xs text-gray-500 font-medium border-t border-gray-800 pt-3">
+                                        <span className="flex items-center gap-1"><div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-redAccent-100"></div>{repo.language || 'Code'}</span>
                                         <span className="flex items-center gap-1"><Icon name="star" className="w-3 h-3" /> {repo.stargazers_count}</span>
                                         <span className="flex items-center gap-1"><Icon name="git-branch" className="w-3 h-3" /> {repo.forks_count}</span>
                                     </div>
@@ -1021,30 +1104,30 @@ Content-Type: application/json
 
         const WriteupsTab = ({ setSelectedWriteup }) => {
             return (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6 md:space-y-8">
                     
                     {/* Articles Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2"><Icon name="book-open" /> Writeups & Articles</h2>
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="book-open" /> Writeups & Articles</h2>
                         
-                        <div className="grid grid-cols-1 gap-6">
+                        <div className="grid grid-cols-1 gap-4 md:gap-6">
                             {/* Test Writeup */}
                             <motion.div 
                                 onClick={() => setSelectedWriteup(testWriteupData)}
                                 whileHover={{ y: -3, boxShadow: "0 10px 25px -5px rgba(255, 59, 59, 0.2)" }}
-                                className="bg-dark-200 p-6 rounded-xl border border-dashed border-redAccent-100/50 hover:border-solid hover:border-redAccent-100 transition-all block cursor-pointer group relative overflow-hidden"
+                                className="bg-dark-200 p-4 md:p-6 rounded-xl border border-dashed border-redAccent-100/50 hover:border-solid hover:border-redAccent-100 transition-all block cursor-pointer group relative overflow-hidden"
                             >
-                                <div className="absolute top-4 right-4 bg-redAccent-100/20 text-redAccent-100 text-xs px-2 py-1 rounded font-bold uppercase tracking-wider">
+                                <div className="absolute top-3 right-3 md:top-4 md:right-4 bg-redAccent-100/20 text-redAccent-100 text-[10px] md:text-xs px-2 py-1 rounded font-bold uppercase tracking-wider">
                                     Test Only
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-redAccent-100 flex items-center gap-2 pr-20">
-                                    <Icon name="file-text" className="w-5 h-5" /> 
+                                <h3 className="text-base md:text-xl font-bold text-white mb-2 md:mb-3 group-hover:text-redAccent-100 flex items-center gap-2 pr-16 md:pr-20">
+                                    <Icon name="file-text" className="w-4 h-4 md:w-5 md:h-5 shrink-0" /> 
                                     {testWriteupData.title}
                                 </h3>
-                                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                                <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
                                     This is a placeholder writeup. It is not real and is only used for testing the portfolio layout until I publish my actual security research and bug bounty writeups. Stay tuned!
                                 </p>
-                                <div className="flex gap-4 text-xs text-gray-500 font-medium">
+                                <div className="flex gap-3 md:gap-4 text-[10px] md:text-xs text-gray-500 font-medium">
                                     <span className="flex items-center gap-1"><Icon name="calendar" className="w-3 h-3" /> {testWriteupData.date}</span>
                                     <span className="flex items-center gap-1"><Icon name="clock" className="w-3 h-3" /> {testWriteupData.readTime}</span>
                                 </div>
@@ -1053,21 +1136,21 @@ Content-Type: application/json
                     </div>
 
                     {/* Where I Publish Section */}
-                    <div className="glassmorphism rounded-xl p-6">
-                        <h2 className="text-lg font-semibold mb-6 flex items-center gap-2"><Icon name="edit-3" /> Where I Publish</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <a href="https://medium.com/@kerollosatnass" target="_blank" rel="noopener noreferrer" className="bg-dark-200 p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-4 group">
-                                <img src="https://www.google.com/s2/favicons?domain=medium.com&sz=128" alt="Medium" className="w-10 h-10 rounded bg-white p-1 object-contain group-hover:-rotate-6 transition-transform" />
+                    <div className="glassmorphism rounded-xl p-5 md:p-6">
+                        <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6 flex items-center gap-2"><Icon name="edit-3" /> Where I Publish</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                            <a href="https://medium.com/@kerollosatnass" target="_blank" rel="noopener noreferrer" className="bg-dark-200 p-3 md:p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-3 md:gap-4 group">
+                                <img src="https://www.google.com/s2/favicons?domain=medium.com&sz=128" alt="Medium" className="w-8 h-8 md:w-10 md:h-10 rounded bg-white p-1 object-contain group-hover:-rotate-6 transition-transform" />
                                 <div>
-                                    <h3 className="font-bold text-white">Medium</h3>
-                                    <p className="text-sm text-gray-400">@KerollosAtnass</p>
+                                    <h3 className="font-bold text-white text-sm md:text-base">Medium</h3>
+                                    <p className="text-[10px] md:text-sm text-gray-400">@KerollosAtnass</p>
                                 </div>
                             </a>
-                            <a href="https://dev.to/kerollosatnass" target="_blank" rel="noopener noreferrer" className="bg-dark-200 p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-4 group">
-                                <img src="https://www.google.com/s2/favicons?domain=dev.to&sz=128" alt="Dev.to" className="w-10 h-10 rounded bg-white p-1 object-contain group-hover:-rotate-6 transition-transform" />
+                            <a href="https://dev.to/kerollosatnass" target="_blank" rel="noopener noreferrer" className="bg-dark-200 p-3 md:p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-3 md:gap-4 group">
+                                <img src="https://www.google.com/s2/favicons?domain=dev.to&sz=128" alt="Dev.to" className="w-8 h-8 md:w-10 md:h-10 rounded bg-white p-1 object-contain group-hover:-rotate-6 transition-transform" />
                                 <div>
-                                    <h3 className="font-bold text-white">Dev.to</h3>
-                                    <p className="text-sm text-gray-400">@KerollosAtnass</p>
+                                    <h3 className="font-bold text-white text-sm md:text-base">Dev.to</h3>
+                                    <p className="text-[10px] md:text-sm text-gray-400">@KerollosAtnass</p>
                                 </div>
                             </a>
                         </div>
@@ -1120,25 +1203,25 @@ Content-Type: application/json
             ];
 
             return (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-8">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6 md:space-y-8">
                     {categories.map((cat, i) => (
-                        <div key={i} className="glassmorphism rounded-xl p-6">
-                            <h2 className="text-xl font-semibold mb-6">{cat.title}</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div key={i} className="glassmorphism rounded-xl p-5 md:p-6">
+                            <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6">{cat.title}</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                                 {cat.links.map((link, j) => (
                                     <motion.a 
                                         key={j} href={link.url} target="_blank" rel="noopener noreferrer"
                                         whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(255, 59, 59, 0.4)" }}
-                                        className="bg-dark-200 p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-4 group"
+                                        className="bg-dark-200 p-3 md:p-4 rounded-xl border border-gray-800 hover:border-redAccent-100 transition-all flex items-center gap-3 md:gap-4 group"
                                     >
                                         <img 
                                             src={`https://www.google.com/s2/favicons?domain=${link.img}&sz=128`} 
                                             onError={(e) => { e.target.src = `https://via.placeholder.com/128/141414/ff3b3b?text=${link.name.charAt(0)}` }}
-                                            alt={link.name} className="w-10 h-10 rounded-lg bg-white p-1 object-contain group-hover:-rotate-6 transition-transform" 
+                                            alt={link.name} className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-white p-1 object-contain group-hover:-rotate-6 transition-transform shrink-0" 
                                         />
-                                        <div>
-                                            <h3 className="font-bold text-white">{link.name}</h3>
-                                            <p className="text-sm text-gray-400">{link.handle}</p>
+                                        <div className="overflow-hidden">
+                                            <h3 className="font-bold text-white text-sm md:text-base truncate">{link.name}</h3>
+                                            <p className="text-[10px] md:text-sm text-gray-400 truncate">{link.handle}</p>
                                         </div>
                                     </motion.a>
                                 ))}
@@ -1151,53 +1234,53 @@ Content-Type: application/json
 
         const ContactTab = () => {
             return (
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="glassmorphism rounded-xl p-6">
-                    <h2 className="text-xl font-semibold mb-8 flex items-center gap-2"><Icon name="mail" /> Get In Touch</h2>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="glassmorphism rounded-xl p-5 md:p-6">
+                    <h2 className="text-lg md:text-xl font-semibold mb-6 md:mb-8 flex items-center gap-2"><Icon name="mail" /> Get In Touch</h2>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                         <div className="space-y-6">
-                            <div className="bg-dark-200 p-6 rounded-xl border border-gray-800 h-full">
-                                <h3 className="text-lg font-bold text-redAccent-100 mb-6">Direct Contact</h3>
-                                <div className="space-y-6">
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-redAccent-100/10 text-redAccent-100 flex items-center justify-center"><Icon name="at-sign" /></div>
-                                        <div>
-                                            <p className="text-sm text-gray-400">Email</p>
-                                            <a href="mailto:KerollosAtnass@gmail.com" className="font-bold hover:text-redAccent-100 transition-colors block">KerollosAtnass@gmail.com</a>
+                            <div className="bg-dark-200 p-5 md:p-6 rounded-xl border border-gray-800 h-full flex flex-col justify-center">
+                                <h3 className="text-base md:text-lg font-bold text-redAccent-100 mb-4 md:mb-6">Direct Contact</h3>
+                                <div className="space-y-4 md:space-y-6">
+                                    <div className="flex items-center gap-3 md:gap-4">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-redAccent-100/10 text-redAccent-100 flex items-center justify-center shrink-0"><Icon name="at-sign" className="w-4 h-4 md:w-5 md:h-5"/></div>
+                                        <div className="overflow-hidden">
+                                            <p className="text-[10px] md:text-sm text-gray-400">Email</p>
+                                            <a href="mailto:KerollosAtnass@gmail.com" className="font-bold hover:text-redAccent-100 transition-colors block text-sm md:text-base truncate">KerollosAtnass@gmail.com</a>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-redAccent-100/10 text-redAccent-100 flex items-center justify-center"><Icon name="phone" /></div>
-                                        <div>
-                                            <p className="text-sm text-gray-400">Phone / WhatsApp</p>
-                                            <a href="tel:+201140293372" className="font-bold hover:text-redAccent-100 transition-colors block">+20 114 029 3372</a>
+                                    <div className="flex items-center gap-3 md:gap-4">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-redAccent-100/10 text-redAccent-100 flex items-center justify-center shrink-0"><Icon name="phone" className="w-4 h-4 md:w-5 md:h-5"/></div>
+                                        <div className="overflow-hidden">
+                                            <p className="text-[10px] md:text-sm text-gray-400">Phone / WhatsApp</p>
+                                            <a href="tel:+201140293372" className="font-bold hover:text-redAccent-100 transition-colors block text-sm md:text-base truncate">+20 114 029 3372</a>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-full bg-redAccent-100/10 text-redAccent-100 flex items-center justify-center"><Icon name="map-pin" /></div>
-                                        <div>
-                                            <p className="text-sm text-gray-400">Location</p>
-                                            <a href="https://www.google.com/maps/place/Egypt" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-redAccent-100 transition-colors block">Egypt</a>
+                                    <div className="flex items-center gap-3 md:gap-4">
+                                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-redAccent-100/10 text-redAccent-100 flex items-center justify-center shrink-0"><Icon name="map-pin" className="w-4 h-4 md:w-5 md:h-5"/></div>
+                                        <div className="overflow-hidden">
+                                            <p className="text-[10px] md:text-sm text-gray-400">Location</p>
+                                            <a href="https://www.google.com/maps/place/Egypt" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-redAccent-100 transition-colors block text-sm md:text-base truncate">Egypt</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <form action="https://formspree.io/f/mzdyrzdp" method="POST" className="bg-dark-200 p-6 rounded-xl border border-gray-800 space-y-4">
+                        <form action="https://formspree.io/f/mzdyrzdp" method="POST" className="bg-dark-200 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3 md:space-y-4">
                             <div>
-                                <label className="block text-sm text-gray-400 mb-1">Name</label>
-                                <input type="text" name="name" required className="w-full bg-dark-300 border border-gray-700 rounded-lg p-3 text-white focus:border-redAccent-100 outline-none" placeholder="Your Name" />
+                                <label className="block text-xs md:text-sm text-gray-400 mb-1">Name</label>
+                                <input type="text" name="name" required className="w-full bg-dark-300 border border-gray-700 rounded-lg p-2.5 md:p-3 text-sm md:text-base text-white focus:border-redAccent-100 outline-none transition-colors" placeholder="Your Name" />
                             </div>
                             <div>
-                                <label className="block text-sm text-gray-400 mb-1">Email</label>
-                                <input type="email" name="email" required className="w-full bg-dark-300 border border-gray-700 rounded-lg p-3 text-white focus:border-redAccent-100 outline-none" placeholder="Your Email" />
+                                <label className="block text-xs md:text-sm text-gray-400 mb-1">Email</label>
+                                <input type="email" name="email" required className="w-full bg-dark-300 border border-gray-700 rounded-lg p-2.5 md:p-3 text-sm md:text-base text-white focus:border-redAccent-100 outline-none transition-colors" placeholder="Your Email" />
                             </div>
                             <div>
-                                <label className="block text-sm text-gray-400 mb-1">Message</label>
-                                <textarea name="message" required rows="4" className="w-full bg-dark-300 border border-gray-700 rounded-lg p-3 text-white focus:border-redAccent-100 outline-none" placeholder="How can I help you?"></textarea>
+                                <label className="block text-xs md:text-sm text-gray-400 mb-1">Message</label>
+                                <textarea name="message" required rows="4" className="w-full bg-dark-300 border border-gray-700 rounded-lg p-2.5 md:p-3 text-sm md:text-base text-white focus:border-redAccent-100 outline-none transition-colors resize-none" placeholder="How can I help you?"></textarea>
                             </div>
-                            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full bg-redAccent-100 text-white font-bold py-3 rounded-lg hover:bg-red-600 transition-colors">
+                            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} type="submit" className="w-full bg-redAccent-100 text-white font-bold py-2.5 md:py-3 rounded-lg text-sm md:text-base hover:bg-red-600 transition-colors">
                                 Send Message 🚀
                             </motion.button>
                         </form>
@@ -1214,16 +1297,16 @@ Content-Type: application/json
             const [selectedWriteup, setSelectedWriteup] = React.useState(null);
             const [viewAllData, setViewAllData] = React.useState(null);
 
-            // Scroll to top on tab change
+            // Magic hook to scroll to top smoothly when changing tabs
             React.useEffect(() => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }, [currentTab]);
 
             return (
-                <div className="pt-24 pb-12 px-4 md:px-8 lg:px-16 max-w-6xl mx-auto min-h-screen flex flex-col relative">
+                <div className="pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-8 lg:px-16 max-w-6xl mx-auto min-h-screen flex flex-col relative overflow-x-hidden">
                     <Navbar currentTab={currentTab} setCurrentTab={setCurrentTab} />
                     
-                    <main className="flex-1">
+                    <main className="flex-1 w-full">
                         <AnimatePresence mode="wait">
                             {currentTab === 'home' && <HomeTab key="home" setSelectedCert={setSelectedCert} setSelectedCourse={setSelectedCourse} setSelectedWriteup={setSelectedWriteup} setViewAllData={setViewAllData} setCurrentTab={setCurrentTab} />}
                             {currentTab === 'certs' && <CertsTab key="certs" setSelectedCert={setSelectedCert} setSelectedCourse={setSelectedCourse} setViewAllData={setViewAllData} />}
@@ -1259,7 +1342,7 @@ Content-Type: application/json
                         {selectedWriteup && <WriteupModal writeup={selectedWriteup} onClose={() => setSelectedWriteup(null)} />}
                     </AnimatePresence>
 
-                    <footer className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500">
+                    <footer className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-800 text-center text-gray-500 text-xs md:text-sm w-full">
                         <p>© 2026 Kerollos Atnass | Professor Owl. All rights reserved.</p>
                     </footer>
                 </div>
