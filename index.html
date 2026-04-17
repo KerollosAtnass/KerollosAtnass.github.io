@@ -121,7 +121,7 @@
             </svg>
         );
 
-        // Advanced Dynamic Typewriter
+        // Advanced Dynamic Typewriter (FIXED CRASH ISSUE)
         const DynamicTypewriter = ({ words }) => {
             const [index, setIndex] = React.useState(0);
             const [subIndex, setSubIndex] = React.useState(0);
@@ -134,16 +134,19 @@
             }, [blink]);
 
             React.useEffect(() => {
-                if (index === words.length) { setIndex(0); return; }
+                if (index >= words.length) return; // Safety check
+                
                 if (subIndex === words[index].length + 1 && !reverse) {
-                    setTimeout(() => setReverse(true), 2000); // Pause before deleting
-                    return;
+                    const timeout = setTimeout(() => setReverse(true), 2000); 
+                    return () => clearTimeout(timeout); // Fix memory leak
                 }
+                
                 if (subIndex === 0 && reverse) {
                     setReverse(false);
-                    setIndex((prev) => prev + 1);
+                    setIndex((prev) => (prev + 1) % words.length); // Fix crash here (Modulo wrap-around)
                     return;
                 }
+                
                 const timeout = setTimeout(() => {
                     setSubIndex((prev) => prev + (reverse ? -1 : 1));
                 }, Math.max(reverse ? 40 : 80, parseInt(Math.random() * 50)));
@@ -151,9 +154,12 @@
                 return () => clearTimeout(timeout);
             }, [subIndex, index, reverse, words]);
 
+            // Fallback word in case of rapid re-renders
+            const currentWord = words[index] || "";
+
             return (
                 <span className="text-white font-normal text-sm md:text-base">
-                    {`${words[index].substring(0, subIndex)}`}
+                    {`${currentWord.substring(0, subIndex)}`}
                     <span className={`border-r-2 border-redAccent-100 ml-1 ${blink ? 'opacity-100' : 'opacity-0'}`}>&nbsp;</span>
                 </span>
             );
@@ -166,9 +172,12 @@
             React.useEffect(() => {
                 let start = 0;
                 const end = endValue;
-                if (start === end) return;
+                if (start === end) {
+                    setCount(end);
+                    return;
+                }
                 
-                let totalDuration = 2750; // 1.5 seconds animation
+                let totalDuration = 2750; // User preferred duration
                 let incrementTime = 30;
                 let steps = totalDuration / incrementTime;
                 let stepValue = Math.ceil(end / steps);
