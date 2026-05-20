@@ -65,6 +65,10 @@
     <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -108,8 +112,6 @@
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-        <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
 </head>
 <body class="min-h-screen bg-dark-300">
     <div id="root"></div>
@@ -384,10 +386,10 @@
             
             const tabs = [
                 { id: 'home', label: 'Home', icon: 'home' },
+                { id: 'news', label: 'News', icon: 'activity' },
                 { id: 'certs', label: 'Certifications', icon: 'award' },
                 { id: 'projects', label: 'Projects', icon: 'code' },
                 { id: 'writeups', label: 'Writeups', icon: 'book-open' },
-                { id: 'news', label: 'News', icon: 'activity' },
                 { id: 'links', label: 'Links', icon: 'link' },
                 { id: 'contact', label: 'Contact', icon: 'mail' }
             ];
@@ -1360,189 +1362,177 @@ Content-Type: application/json
 
 
         const NewsTab = () => {
-            
             const [posts, setPosts] = React.useState([]);
             const [loading, setLoading] = React.useState(true);
             const [toastMessage, setToastMessage] = React.useState(null);
             const [likedPosts, setLikedPosts] = React.useState(() => {
-            const saved = localStorage.getItem('likedPosts');
-            return saved ? JSON.parse(saved) : [];
-        });
-
-    // سحب الداتا بشكل لحظي (Real-time) من فايربيز
-    React.useEffect(() => {
-        const unsubscribe = db.collection('news')
-            .orderBy('date', 'desc')
-            .onSnapshot(snapshot => {
-                const fetchedPosts = snapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data(),
-                    // تحويل وقت فايربيز لوقت مقروء
-                    date: doc.data().date?.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) || 'Recent'
-                }));
-                setPosts(fetchedPosts);
-                setLoading(false);
-            }, (error) => {
-                console.error("Error fetching posts:", error);
-                setLoading(false);
+                const saved = localStorage.getItem('likedPosts');
+                return saved ? JSON.parse(saved) : [];
             });
 
-        return () => unsubscribe(); // تنظيف الـ listener لما التاب تتقفل
-    }, []);
+            // سحب الداتا بشكل لحظي (Real-time) من فايربيز
+            React.useEffect(() => {
+                const unsubscribe = db.collection('news')
+                    .orderBy('date', 'desc')
+                    .onSnapshot(snapshot => {
+                        const fetchedPosts = snapshot.docs.map(doc => ({
+                            id: doc.id,
+                            ...doc.data(),
+                            // تحويل وقت فايربيز لوقت مقروء
+                            date: doc.data().date?.toDate().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) || 'Recent'
+                        }));
+                        setPosts(fetchedPosts);
+                        setLoading(false);
+                    }, (error) => {
+                        console.error("Error fetching posts:", error);
+                        setLoading(false);
+                    });
 
-    const handleLike = (postId) => {
-        const handleLike = (postId) => {
-        const isLiked = likedPosts.includes(postId);
-        
-        // لو عامل لايك نشيله، لو مش عامل نضيفه
-        const newLikedPosts = isLiked 
-            ? likedPosts.filter(id => id !== postId) 
-            : [...likedPosts, postId];
-            
-        // تحديث الـ State والـ localStorage فوراً عشان اللون يتغير في نفس اللحظة
-        setLikedPosts(newLikedPosts);
-        localStorage.setItem('likedPosts', JSON.stringify(newLikedPosts));
+                return () => unsubscribe(); // تنظيف الـ listener لما التاب تتقفل
+            }, []);
 
-        // إرسال التحديث لفايربيز (+1 أو -1)
-        db.collection('news').doc(postId).update({
-            likes: firebase.firestore.FieldValue.increment(isLiked ? -1 : 1)
-        }).catch(err => {
-            console.error("Error toggling like:", err);
-            // لو حصل مشكلة في النت نرجع كل حاجة زي ما كانت
-            setLikedPosts(likedPosts);
-            localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
-        });
-    };
+            const handleLike = (postId) => {
+                const isLiked = likedPosts.includes(postId);
+                
+                // لو عامل لايك نشيله، لو مش عامل نضيفه
+                const newLikedPosts = isLiked 
+                    ? likedPosts.filter(id => id !== postId) 
+                    : [...likedPosts, postId];
+                    
+                // تحديث الـ State والـ localStorage فوراً عشان اللون يتغير في نفس اللحظة
+                setLikedPosts(newLikedPosts);
+                localStorage.setItem('likedPosts', JSON.stringify(newLikedPosts));
 
-    const handleShare = () => {
-        navigator.clipboard.writeText(window.location.href);
-        setToastMessage("Link copied successfully! 🚀");
-        setTimeout(() => setToastMessage(null), 3000);
-    };
+                // إرسال التحديث لفايربيز (+1 أو -1)
+                db.collection('news').doc(postId).update({
+                    likes: firebase.firestore.FieldValue.increment(isLiked ? -1 : 1)
+                }).catch(err => {
+                    console.error("Error toggling like:", err);
+                    // لو حصل مشكلة في النت نرجع كل حاجة زي ما كانت
+                    setLikedPosts(likedPosts);
+                    localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
+                });
+            };
 
-    // Component لتقسيم الصور ديناميكياً
-    const ImageGrid = ({ images }) => {
-        if (!images || images.length === 0) return null;
-        
-        if (images.length === 1) {
-            return <img src={images[0]} className="w-full h-auto max-h-96 object-cover rounded-xl mt-3 border border-gray-800" />;
-        }
-        if (images.length === 2) {
-            return (
-                <div className="grid grid-cols-2 gap-2 mt-3">
-                    {images.map((img, i) => <img key={i} src={img} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800" />)}
-                </div>
-            );
-        }
-        if (images.length === 3) {
-            return (
-                <div className="grid grid-cols-2 gap-2 mt-3">
-                    <img src={images[0]} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800 col-span-2" />
-                    <img src={images[1]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800" />
-                    <img src={images[2]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800" />
-                </div>
-            );
-        }
-        // 4 صور أو أكتر
-        return (
-            <div className="grid grid-cols-2 gap-2 mt-3">
-                {images.slice(0, 4).map((img, i) => (
-                    <div key={i} className="relative w-full h-32 md:h-48">
-                        <img src={img} className="w-full h-full object-cover rounded-xl border border-gray-800" />
-                        {i === 3 && images.length > 4 && (
-                            <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors">
-                                <span className="text-white font-bold text-xl md:text-2xl">+{images.length - 4}</span>
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
-        );
-    };
+            const handleShare = () => {
+                navigator.clipboard.writeText(window.location.href);
+                setToastMessage("Link copied successfully! 🚀");
+                setTimeout(() => setToastMessage(null), 3000);
+            };
 
-    return (
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6 md:space-y-8 relative">
-            <div className="glassmorphism rounded-xl p-5 md:p-6 mb-6">
-                <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2"><Icon name="activity" className="text-redAccent-100" /> Activity & News</h2>
-                <p className="text-gray-400 text-sm mt-2">Latest updates, events, and CTF participations.</p>
-            </div>
-
-            {loading ? (
-                <div className="flex justify-center py-12"><div className="w-8 h-8 border-4 border-dark-200 border-t-redAccent-100 rounded-full animate-spin"></div></div>
-            ) : posts.length === 0 ? (
-                <p className="text-center text-gray-500 py-8">No updates yet.</p>
-            ) : (
-                <div className="space-y-6 max-w-3xl mx-auto">
-                    {posts.map(post => (
-                        <div key={post.id} className="bg-dark-200 p-4 md:p-6 rounded-xl border border-gray-800 shadow-lg">
-                            {/* Header: Title & Date */}
-                            <div className="flex justify-between items-start mb-3">
-                                <div>
-                                    <h3 className="font-bold text-white text-base md:text-lg">{post.title}</h3>
-                                    <p className="text-xs text-gray-500 mt-1 flex items-center gap-1"><Icon name="clock" className="w-3 h-3" /> {post.date}</p>
-                                </div>
-                                <div className="flex gap-1 flex-wrap justify-end max-w-[40%]">
-                                    {post.tags && post.tags.map((tag, idx) => (
-                                        <span key={idx} className="bg-dark-100 text-redAccent-100 border border-redAccent-100/30 text-[9px] md:text-xs px-2 py-0.5 rounded-full">{tag}</span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Content */}
-                            <p className="text-gray-300 text-sm md:text-base leading-relaxed whitespace-pre-wrap">{post.description}</p>
-
-                            {/* Image Grid */}
-                            <ImageGrid images={post.images} />
-
-                            {/* Interactions */}
-                            <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-800">
-                               {/* Interactions */}
-                                <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-800">
-                                    {(() => {
-                                        const isLiked = likedPosts.includes(post.id);
-                                        return (
-                                            <button 
-                                                onClick={() => handleLike(post.id)} 
-                                                className={`flex items-center gap-1.5 transition-colors group ${isLiked ? 'text-redAccent-100' : 'text-gray-400 hover:text-redAccent-100'}`}
-                                            >
-                                                <Icon name="heart" className={`w-5 h-5 group-active:scale-75 transition-transform ${isLiked ? 'fill-current' : ''}`} />
-                                                <span className="font-semibold text-sm">{post.likes || 0}</span>
-                                            </button>
-                                        );
-                                    })()}
-                                    
-                                    <button onClick={handleShare} className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors group">
-                                        <Icon name="share-2" className="w-5 h-5 group-active:scale-75 transition-transform" />
-                                        <span className="font-semibold text-sm">Share</span>
-                                    </button>
-                                </div>
-                                    <Icon name="heart" className="w-5 h-5 group-active:scale-75 transition-transform" />
-                                    <span className="font-semibold text-sm">{post.likes || 0}</span>
-                                </button>
-                                <button onClick={handleShare} className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors group">
-                                    <Icon name="share-2" className="w-5 h-5 group-active:scale-75 transition-transform" />
-                                    <span className="font-semibold text-sm">Share</span>
-                                </button>
-                            </div>
+            // Component لتقسيم الصور ديناميكياً
+            const ImageGrid = ({ images }) => {
+                if (!images || images.length === 0) return null;
+                
+                if (images.length === 1) {
+                    return <img src={images[0]} className="w-full h-auto max-h-96 object-cover rounded-xl mt-3 border border-gray-800" />;
+                }
+                if (images.length === 2) {
+                    return (
+                        <div className="grid grid-cols-2 gap-2 mt-3">
+                            {images.map((img, i) => <img key={i} src={img} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800" />)}
                         </div>
-                    ))}
-                </div>
-            )}
+                    );
+                }
+                if (images.length === 3) {
+                    return (
+                        <div className="grid grid-cols-2 gap-2 mt-3">
+                            <img src={images[0]} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800 col-span-2" />
+                            <img src={images[1]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800" />
+                            <img src={images[2]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800" />
+                        </div>
+                    );
+                }
+                // 4 صور أو أكتر
+                return (
+                    <div className="grid grid-cols-2 gap-2 mt-3">
+                        {images.slice(0, 4).map((img, i) => (
+                            <div key={i} className="relative w-full h-32 md:h-48">
+                                <img src={img} className="w-full h-full object-cover rounded-xl border border-gray-800" />
+                                {i === 3 && images.length > 4 && (
+                                    <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors">
+                                        <span className="text-white font-bold text-xl md:text-2xl">+{images.length - 4}</span>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                );
+            };
 
-            {/* Toast Notification */}
-            <AnimatePresence>
-                {toastMessage && (
-                    <motion.div 
-                        initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }}
-                        className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-redAccent-100 text-white px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(255,59,59,0.4)] font-semibold z-50 text-sm flex items-center gap-2"
-                    >
-                        <Icon name="check-circle" className="w-4 h-4" /> {toastMessage}
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.div>
-    );
-};
+            return (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} className="space-y-6 md:space-y-8 relative">
+                    <div className="glassmorphism rounded-xl p-5 md:p-6 mb-6">
+                        <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2"><Icon name="activity" className="text-redAccent-100" /> Activity & News</h2>
+                        <p className="text-gray-400 text-sm mt-2">Latest updates, events, and CTF participations.</p>
+                    </div>
+
+                    {loading ? (
+                        <div className="flex justify-center py-12"><div className="w-8 h-8 border-4 border-dark-200 border-t-redAccent-100 rounded-full animate-spin"></div></div>
+                    ) : posts.length === 0 ? (
+                        <p className="text-center text-gray-500 py-8">No updates yet.</p>
+                    ) : (
+                        <div className="space-y-6 max-w-3xl mx-auto">
+                            {posts.map(post => (
+                                <div key={post.id} className="bg-dark-200 p-4 md:p-6 rounded-xl border border-gray-800 shadow-lg">
+                                    {/* Header: Title & Date */}
+                                    <div className="flex justify-between items-start mb-3">
+                                        <div>
+                                            <h3 className="font-bold text-white text-base md:text-lg">{post.title}</h3>
+                                            <p className="text-xs text-gray-500 mt-1 flex items-center gap-1"><Icon name="clock" className="w-3 h-3" /> {post.date}</p>
+                                        </div>
+                                        <div className="flex gap-1 flex-wrap justify-end max-w-[40%]">
+                                            {post.tags && post.tags.map((tag, idx) => (
+                                                <span key={idx} className="bg-dark-100 text-redAccent-100 border border-redAccent-100/30 text-[9px] md:text-xs px-2 py-0.5 rounded-full">{tag}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <p className="text-gray-300 text-sm md:text-base leading-relaxed whitespace-pre-wrap">{post.description}</p>
+
+                                    {/* Image Grid */}
+                                    <ImageGrid images={post.images} />
+
+                                    {/* Interactions */}
+                                    <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-800">
+                                        {(() => {
+                                            const isLiked = likedPosts.includes(post.id);
+                                            return (
+                                                <button 
+                                                    onClick={() => handleLike(post.id)} 
+                                                    className={`flex items-center gap-1.5 transition-colors group ${isLiked ? 'text-redAccent-100' : 'text-gray-400 hover:text-redAccent-100'}`}
+                                                >
+                                                    <Icon name="heart" className={`w-5 h-5 group-active:scale-75 transition-transform ${isLiked ? 'fill-current' : ''}`} />
+                                                    <span className="font-semibold text-sm">{post.likes || 0}</span>
+                                                </button>
+                                            );
+                                        })()}
+                                        
+                                        <button onClick={handleShare} className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors group">
+                                            <Icon name="share-2" className="w-5 h-5 group-active:scale-75 transition-transform" />
+                                            <span className="font-semibold text-sm">Share</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Toast Notification */}
+                    <AnimatePresence>
+                        {toastMessage && (
+                            <motion.div 
+                                initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }}
+                                className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-redAccent-100 text-white px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(255,59,59,0.4)] font-semibold z-50 text-sm flex items-center gap-2"
+                            >
+                                <Icon name="check-circle" className="w-4 h-4" /> {toastMessage}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.div>
+            );
+        };
         
 
         // --- Main App Component ---
