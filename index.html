@@ -1360,9 +1360,14 @@ Content-Type: application/json
 
 
         const NewsTab = () => {
-    const [posts, setPosts] = React.useState([]);
-    const [loading, setLoading] = React.useState(true);
-    const [toastMessage, setToastMessage] = React.useState(null);
+            
+            const [posts, setPosts] = React.useState([]);
+            const [loading, setLoading] = React.useState(true);
+            const [toastMessage, setToastMessage] = React.useState(null);
+            const [likedPosts, setLikedPosts] = React.useState(() => {
+            const saved = localStorage.getItem('likedPosts');
+            return saved ? JSON.parse(saved) : [];
+        });
 
     // سحب الداتا بشكل لحظي (Real-time) من فايربيز
     React.useEffect(() => {
@@ -1386,10 +1391,28 @@ Content-Type: application/json
     }, []);
 
     const handleLike = (postId) => {
-        // تزويد اللايكات بمقدار 1 في الداتابيز
+        const handleLike = (postId) => {
+        const isLiked = likedPosts.includes(postId);
+        
+        // لو عامل لايك نشيله، لو مش عامل نضيفه
+        const newLikedPosts = isLiked 
+            ? likedPosts.filter(id => id !== postId) 
+            : [...likedPosts, postId];
+            
+        // تحديث الـ State والـ localStorage فوراً عشان اللون يتغير في نفس اللحظة
+        setLikedPosts(newLikedPosts);
+        localStorage.setItem('likedPosts', JSON.stringify(newLikedPosts));
+
+        // إرسال التحديث لفايربيز (+1 أو -1)
         db.collection('news').doc(postId).update({
-            likes: firebase.firestore.FieldValue.increment(1)
-        }).catch(err => console.error("Error liking post:", err));
+            likes: firebase.firestore.FieldValue.increment(isLiked ? -1 : 1)
+        }).catch(err => {
+            console.error("Error toggling like:", err);
+            // لو حصل مشكلة في النت نرجع كل حاجة زي ما كانت
+            setLikedPosts(likedPosts);
+            localStorage.setItem('likedPosts', JSON.stringify(likedPosts));
+        });
+    };
     };
 
     const handleShare = () => {
@@ -1474,7 +1497,26 @@ Content-Type: application/json
 
                             {/* Interactions */}
                             <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-800">
-                                <button onClick={() => handleLike(post.id)} className="flex items-center gap-1.5 text-gray-400 hover:text-redAccent-100 transition-colors group">
+                               {/* Interactions */}
+                                <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-800">
+                                    {(() => {
+                                        const isLiked = likedPosts.includes(post.id);
+                                        return (
+                                            <button 
+                                                onClick={() => handleLike(post.id)} 
+                                                className={`flex items-center gap-1.5 transition-colors group ${isLiked ? 'text-redAccent-100' : 'text-gray-400 hover:text-redAccent-100'}`}
+                                            >
+                                                <Icon name="heart" className={`w-5 h-5 group-active:scale-75 transition-transform ${isLiked ? 'fill-current' : ''}`} />
+                                                <span className="font-semibold text-sm">{post.likes || 0}</span>
+                                            </button>
+                                        );
+                                    })()}
+                                    
+                                    <button onClick={handleShare} className="flex items-center gap-1.5 text-gray-400 hover:text-white transition-colors group">
+                                        <Icon name="share-2" className="w-5 h-5 group-active:scale-75 transition-transform" />
+                                        <span className="font-semibold text-sm">Share</span>
+                                    </button>
+                                </div>
                                     <Icon name="heart" className="w-5 h-5 group-active:scale-75 transition-transform" />
                                     <span className="font-semibold text-sm">{post.likes || 0}</span>
                                 </button>
