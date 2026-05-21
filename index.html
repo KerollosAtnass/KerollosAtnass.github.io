@@ -1360,7 +1360,6 @@ Content-Type: application/json
             );
         };
 
-
         const NewsTab = () => {
             const [posts, setPosts] = React.useState([]);
             const [loading, setLoading] = React.useState(true);
@@ -1369,6 +1368,10 @@ Content-Type: application/json
                 const saved = localStorage.getItem('likedPosts');
                 return saved ? JSON.parse(saved) : [];
             });
+
+            // حالات لصور البوستات الجديدة (Lightbox & Gallery)
+            const [fullScreenImage, setFullscreenImage] = React.useState(null);
+            const [galleryImages, setGalleryImages] = React.useState(null);
 
             // سحب الداتا بشكل لحظي (Real-time) من فايربيز
             React.useEffect(() => {
@@ -1420,26 +1423,46 @@ Content-Type: application/json
                 setTimeout(() => setToastMessage(null), 3000);
             };
 
+            // Component لعرض النص مع Read More
+            const PostText = ({ text }) => {
+                const [expanded, setExpanded] = React.useState(false);
+                if (!text) return null;
+                const isLong = text.length > 150; // الحد اللي بيظهر بعده زرار العرض
+
+                return (
+                    <div>
+                        <p className={`text-gray-300 text-sm md:text-base leading-relaxed whitespace-pre-wrap transition-all duration-300 ${!expanded && isLong ? 'line-clamp-3' : ''}`}>
+                            {text}
+                        </p>
+                        {isLong && (
+                            <button onClick={() => setExpanded(!expanded)} className="text-redAccent-100 text-xs md:text-sm font-bold mt-1 hover:text-white transition-colors">
+                                {expanded ? 'View less' : 'View more...'}
+                            </button>
+                        )}
+                    </div>
+                );
+            };
+
             // Component لتقسيم الصور ديناميكياً
             const ImageGrid = ({ images }) => {
                 if (!images || images.length === 0) return null;
                 
                 if (images.length === 1) {
-                    return <img src={images[0]} className="w-full h-auto max-h-96 object-cover rounded-xl mt-3 border border-gray-800" />;
+                    return <img src={images[0]} onClick={() => setFullscreenImage(images[0])} className="w-full h-auto max-h-96 object-cover rounded-xl mt-3 border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />;
                 }
                 if (images.length === 2) {
                     return (
                         <div className="grid grid-cols-2 gap-2 mt-3">
-                            {images.map((img, i) => <img key={i} src={img} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800" />)}
+                            {images.map((img, i) => <img key={i} onClick={() => setFullscreenImage(img)} src={img} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />)}
                         </div>
                     );
                 }
                 if (images.length === 3) {
                     return (
                         <div className="grid grid-cols-2 gap-2 mt-3">
-                            <img src={images[0]} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800 col-span-2" />
-                            <img src={images[1]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800" />
-                            <img src={images[2]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800" />
+                            <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800 col-span-2 cursor-pointer hover:opacity-90 transition-opacity" />
+                            <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />
+                            <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />
                         </div>
                     );
                 }
@@ -1447,10 +1470,10 @@ Content-Type: application/json
                 return (
                     <div className="grid grid-cols-2 gap-2 mt-3">
                         {images.slice(0, 4).map((img, i) => (
-                            <div key={i} className="relative w-full h-32 md:h-48">
-                                <img src={img} className="w-full h-full object-cover rounded-xl border border-gray-800" />
+                            <div key={i} className="relative w-full h-32 md:h-48 group">
+                                <img onClick={() => setFullscreenImage(img)} src={img} className="w-full h-full object-cover rounded-xl border border-gray-800 cursor-pointer group-hover:opacity-90 transition-opacity" />
                                 {i === 3 && images.length > 4 && (
-                                    <div className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors">
+                                    <div onClick={() => setGalleryImages(images)} className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors">
                                         <span className="text-white font-bold text-xl md:text-2xl">+{images.length - 4}</span>
                                     </div>
                                 )}
@@ -1488,10 +1511,10 @@ Content-Type: application/json
                                         </div>
                                     </div>
 
-                                    {/* Content */}
-                                    <p className="text-gray-300 text-sm md:text-base leading-relaxed whitespace-pre-wrap">{post.description}</p>
+                                    {/* Content (مع التعديل الجديد لزرار View more) */}
+                                    <PostText text={post.description} />
 
-                                    {/* Image Grid */}
+                                    {/* Image Grid (مع إضافة التحكم في ضغطات الصور) */}
                                     <ImageGrid images={post.images} />
 
                                     {/* Interactions */}
@@ -1530,6 +1553,51 @@ Content-Type: application/json
                             </motion.div>
                         )}
                     </AnimatePresence>
+
+                    {/* معرض الصور الكامل (يظهر لو فيه صور كتير وداس على +X) */}
+                    <AnimatePresence>
+                        {galleryImages && (
+                            <motion.div 
+                                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                                className="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md flex flex-col items-center overflow-y-auto custom-scrollbar p-4 md:p-8" 
+                                onClick={() => setGalleryImages(null)}
+                            >
+                                <button onClick={() => setGalleryImages(null)} className="fixed top-4 right-4 md:top-8 md:right-8 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-10 h-10 rounded-full font-bold flex items-center justify-center transition-colors z-20 shadow-lg">X</button>
+                                <div 
+                                    className="w-full max-w-3xl flex flex-col gap-4 mt-12 md:mt-0"
+                                    onClick={(e) => e.stopPropagation()} 
+                                >
+                                    {galleryImages.map((img, idx) => (
+                                        <motion.img 
+                                            initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: idx * 0.05 }}
+                                            key={idx} src={img} 
+                                            className="w-full h-auto object-cover rounded-xl border border-gray-800 cursor-pointer hover:border-redAccent-100 transition-colors shadow-lg" 
+                                            onClick={() => setFullscreenImage(img)}
+                                        />
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    {/* عارض الصورة المكبرة (Lightbox) */}
+                    <AnimatePresence>
+                        {fullScreenImage && (
+                            <motion.div 
+                                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+                                className="fixed inset-0 z-[120] flex items-center justify-center bg-black/95 backdrop-blur-lg p-4 cursor-pointer" 
+                                onClick={() => setFullscreenImage(null)}
+                            >
+                                <button onClick={() => setFullscreenImage(null)} className="absolute top-4 right-4 md:top-8 md:right-8 bg-dark-100 hover:bg-redAccent-100 border border-gray-700 text-white w-10 h-10 rounded-full font-bold flex items-center justify-center transition-colors z-[130] shadow-lg">X</button>
+                                <motion.img 
+                                    initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.8, opacity: 0 }}
+                                    src={fullScreenImage} 
+                                    className="max-w-full max-h-full object-contain rounded-lg shadow-2xl" 
+                                />
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
                 </motion.div>
             );
         };
