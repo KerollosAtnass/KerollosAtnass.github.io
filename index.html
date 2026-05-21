@@ -1443,44 +1443,114 @@ Content-Type: application/json
                 );
             };
 
-            // Component لتقسيم الصور ديناميكياً
+            // Component لتقسيم الصور ديناميكياً (ng-photo-grid / Facebook style)
             const ImageGrid = ({ images }) => {
+                const [isPortrait, setIsPortrait] = React.useState(false);
+
+                // فحص أبعاد الصورة الأولى لمعرفة ما إذا كانت بالطول أم بالعرض
+                React.useEffect(() => {
+                    if (!images || images.length === 0) return;
+                    const img = new Image();
+                    img.src = images[0];
+                    img.onload = () => {
+                        setIsPortrait(img.naturalHeight > img.naturalWidth);
+                    };
+                }, [images]);
+
                 if (!images || images.length === 0) return null;
-                
+
+                const gridClasses = "w-full rounded-xl mt-3 border border-gray-800 overflow-hidden bg-dark-200 gap-0.5 md:gap-1";
+                const imgClasses = "w-full h-full object-cover cursor-pointer hover:opacity-90 transition-opacity";
+
                 if (images.length === 1) {
-                    return <img src={images[0]} onClick={() => setFullscreenImage(images[0])} className="w-full h-auto max-h-96 object-cover rounded-xl mt-3 border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />;
+                    return (
+                        <div className={`${gridClasses} flex max-h-[500px]`}>
+                            <img src={images[0]} onClick={() => setFullscreenImage(images[0])} className={`${imgClasses} !object-contain bg-dark-300`} />
+                        </div>
+                    );
                 }
+                
                 if (images.length === 2) {
                     return (
-                        <div className="grid grid-cols-2 gap-2 mt-3">
-                            {images.map((img, i) => <img key={i} onClick={() => setFullscreenImage(img)} src={img} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />)}
+                        <div className={`${gridClasses} grid ${isPortrait ? 'grid-cols-2' : 'grid-cols-2 grid-rows-1'} h-[300px] md:h-[400px]`}>
+                            <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className={imgClasses} />
+                            <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className={imgClasses} />
                         </div>
                     );
                 }
+
                 if (images.length === 3) {
+                    if (isPortrait) {
+                        return (
+                            <div className={`${gridClasses} grid grid-cols-2 grid-rows-2 h-[300px] md:h-[450px]`}>
+                                <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className={`${imgClasses} row-span-2`} />
+                                <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className={imgClasses} />
+                                <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className={imgClasses} />
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div className={`${gridClasses} grid grid-cols-2 grid-rows-2 h-[300px] md:h-[450px]`}>
+                                <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className={`${imgClasses} col-span-2`} />
+                                <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className={imgClasses} />
+                                <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className={imgClasses} />
+                            </div>
+                        );
+                    }
+                }
+
+                if (images.length === 4) {
+                    if (isPortrait) {
+                        return (
+                            <div className={`${gridClasses} grid grid-cols-2 grid-rows-3 h-[400px] md:h-[500px]`}>
+                                <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className={`${imgClasses} row-span-3`} />
+                                <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className={imgClasses} />
+                                <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className={imgClasses} />
+                                <img onClick={() => setFullscreenImage(images[3])} src={images[3]} className={imgClasses} />
+                            </div>
+                        );
+                    } else {
+                        return (
+                            <div className={`${gridClasses} grid grid-cols-3 grid-rows-2 h-[300px] md:h-[400px]`}>
+                                <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className={`${imgClasses} col-span-3`} />
+                                <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className={imgClasses} />
+                                <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className={imgClasses} />
+                                <img onClick={() => setFullscreenImage(images[3])} src={images[3]} className={imgClasses} />
+                            </div>
+                        );
+                    }
+                }
+
+                // 5 or more images
+                if (isPortrait) {
                     return (
-                        <div className="grid grid-cols-2 gap-2 mt-3">
-                            <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className="w-full h-48 md:h-64 object-cover rounded-xl border border-gray-800 col-span-2 cursor-pointer hover:opacity-90 transition-opacity" />
-                            <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />
-                            <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className="w-full h-32 md:h-48 object-cover rounded-xl border border-gray-800 cursor-pointer hover:opacity-90 transition-opacity" />
+                        <div className={`${gridClasses} grid grid-cols-2 grid-rows-3 h-[400px] md:h-[500px]`}>
+                            <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className={`${imgClasses} row-span-3`} />
+                            <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className={imgClasses} />
+                            <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className={imgClasses} />
+                            <div className="relative w-full h-full group cursor-pointer" onClick={() => setGalleryImages(images)}>
+                                <img src={images[3]} className={imgClasses} />
+                                <div className="absolute inset-0 bg-black/60 flex items-center justify-center hover:bg-black/70 transition-colors">
+                                    <span className="text-white font-bold text-2xl md:text-3xl">+{images.length - 4}</span>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                } else {
+                    return (
+                        <div className={`${gridClasses} grid grid-cols-3 grid-rows-2 h-[300px] md:h-[400px]`}>
+                            <img onClick={() => setFullscreenImage(images[0])} src={images[0]} className={`${imgClasses} col-span-3`} />
+                            <img onClick={() => setFullscreenImage(images[1])} src={images[1]} className={imgClasses} />
+                            <img onClick={() => setFullscreenImage(images[2])} src={images[2]} className={imgClasses} />
+                            <div className="relative w-full h-full group cursor-pointer" onClick={() => setGalleryImages(images)}>
+                                <img src={images[3]} className={imgClasses} />
+                                <div className="absolute inset-0 bg-black/60 flex items-center justify-center hover:bg-black/70 transition-colors">
+                                    <span className="text-white font-bold text-2xl md:text-3xl">+{images.length - 4}</span>
+                                </div>
+                            </div>
                         </div>
                     );
                 }
-                // 4 صور أو أكتر
-                return (
-                    <div className="grid grid-cols-2 gap-2 mt-3">
-                        {images.slice(0, 4).map((img, i) => (
-                            <div key={i} className="relative w-full h-32 md:h-48 group">
-                                <img onClick={() => setFullscreenImage(img)} src={img} className="w-full h-full object-cover rounded-xl border border-gray-800 cursor-pointer group-hover:opacity-90 transition-opacity" />
-                                {i === 3 && images.length > 4 && (
-                                    <div onClick={() => setGalleryImages(images)} className="absolute inset-0 bg-black/60 rounded-xl flex items-center justify-center cursor-pointer hover:bg-black/70 transition-colors">
-                                        <span className="text-white font-bold text-xl md:text-2xl">+{images.length - 4}</span>
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                );
             };
 
             return (
@@ -1602,7 +1672,6 @@ Content-Type: application/json
             );
         };
         
-
         // --- Main App Component ---
         const App = () => {
             const [currentTab, setCurrentTab] = React.useState('home');
