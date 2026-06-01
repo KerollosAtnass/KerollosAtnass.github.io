@@ -1,0 +1,6 @@
+{
+  "name": "portfolio-sitemap",
+  "dependencies": {
+    "firebase": "^10.0.0"
+  }
+}
