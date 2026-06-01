@@ -2,7 +2,6 @@ const fs = require('fs');
 const firebase = require('firebase/compat/app');
 require('firebase/compat/firestore');
 
-// السكريبت هيسحب البيانات من خزنة جيت هب بشكل آمن تماماً
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -28,23 +27,47 @@ async function generateSitemap() {
 
     xml += `  <url>\n    <loc>https://kerollosatnass.github.io/</loc>\n    <priority>1.0</priority>\n  </url>\n`;
 
-    // سحب الشهادات
+    // ─── 1. سحب الشهادات (بذكاء) ───
     xml += `  <url>\n    <loc>https://kerollosatnass.github.io/?tab=certs</loc>\n    <priority>0.9</priority>\n`;
     const certsSnap = await db.collection('Verified-Certifications').get();
     certsSnap.forEach(doc => {
-        if (doc.data()['Image URL']) {
-            xml += `    <image:image>\n      <image:loc>${escapeXML(doc.data()['Image URL'])}</image:loc>\n      <image:title>Kerollos Atnass - Professor Owl - كيرلس أطناس</image:title>\n      <image:caption>${escapeXML(doc.data().Title)} - Kerollos Atnass (Professor Owl - كيرلس اطناس)</image:caption>\n    </image:image>\n`;
+        const data = doc.data();
+        
+        // صائد الصور: بيبحث في كل المسميات المحتملة اللي ممكن تكون متسجلة في الداتابيز
+        let imgUrl = data['Image URL'] || data['Image Url'] || data.imageUrl || data.image || data.Image || data.awardImage;
+        
+        // لو الصورة متخزنة في Array بالغلط
+        if (!imgUrl && data.images && data.images.length > 0) {
+            imgUrl = data.images[0];
+        }
+
+        if (imgUrl) {
+            xml += `    <image:image>\n      <image:loc>${escapeXML(imgUrl)}</image:loc>\n      <image:title>Kerollos Atnass - Professor Owl - كيرلس أطناس</image:title>\n      <image:caption>${escapeXML(data.Title || data.title || 'Certification')} - Kerollos Atnass (Professor Owl - كيرلس اطناس)</image:caption>\n    </image:image>\n`;
         }
     });
     xml += `  </url>\n`;
 
-    // سحب الأخبار
+    // ─── 2. سحب الأخبار (بذكاء) ───
     xml += `  <url>\n    <loc>https://kerollosatnass.github.io/?tab=news</loc>\n    <priority>0.9</priority>\n`;
     const newsSnap = await db.collection('news').get();
     newsSnap.forEach(doc => {
-        if (doc.data().images && doc.data().images.length > 0) {
-            doc.data().images.forEach(imgUrl => {
-                xml += `    <image:image>\n      <image:loc>${escapeXML(imgUrl)}</image:loc>\n      <image:title>Kerollos Atnass - Professor Owl - كيرلس أطناس</image:title>\n      <image:caption>${escapeXML(doc.data().title)} - Kerollos Atnass (Professor Owl - كيرلس اطناس)</image:caption>\n    </image:image>\n`;
+        const data = doc.data();
+        
+        // تجميع كل الصور للخبر من أي حقل محتمل
+        let newsImages = [];
+        if (data.images && Array.isArray(data.images)) {
+            newsImages = data.images;
+        } else if (data.image) {
+            newsImages = [data.image];
+        } else if (data['Image URL'] || data.imageUrl) {
+            newsImages = [data['Image URL'] || data.imageUrl];
+        }
+
+        if (newsImages.length > 0) {
+            newsImages.forEach(imgUrl => {
+                if (imgUrl) {
+                    xml += `    <image:image>\n      <image:loc>${escapeXML(imgUrl)}</image:loc>\n      <image:title>Kerollos Atnass - Professor Owl - كيرلس أطناس</image:title>\n      <image:caption>${escapeXML(data.title || data.Title || 'News Update')} - Kerollos Atnass (Professor Owl - كيرلس اطناس)</image:caption>\n    </image:image>\n`;
+                }
             });
         }
     });
